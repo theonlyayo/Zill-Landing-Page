@@ -89,7 +89,7 @@ export function CampusYearbook() {
           
           <div className="mb-16">
              <span className="text-[13px] font-medium text-[#666666] mb-4 block">
-                Zill Campus Yearbook
+                The Zill Team
               </span>
               <h2 className="text-4xl md:text-[44px] font-bold text-[#111111] leading-[1.1] tracking-tight max-w-2xl">
                 The Students Behind<br/>
