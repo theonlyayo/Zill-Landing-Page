@@ -1,26 +1,78 @@
 @import "tailwindcss";
+@import "@fontsource-variable/tasa-orbiter";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand: #FF3700;
+  --brand-dark: #111111;
+  --brand-light: #F0F0F0;
+  --brand-gray: #6A6A6A;
+  --white: #FFFFFF;
+  --background: #FFFFFF;
+  --foreground: #111111;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand: #FF3700;
+  --color-brand-dark: #111111;
+  --color-brand-light: #F0F0F0;
+  --color-brand-gray: #6A6A6A;
+  --color-white: #FFFFFF;
+
+  --font-sans: "TASA Orbiter Variable", sans-serif;
+  --font-archivo: var(--font-archivo);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--white);
+  color: var(--brand-dark);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-24 md:py-32 xl:py-40;
+  }
+
+  .max-container {
+    @apply w-full max-w-full px-6 lg:px-[148px] mx-auto;
+  }
 }
