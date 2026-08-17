@@ -11,7 +11,7 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   title: "Zill — Your Campus Marketplace",
   description:
-    "The hyper-local marketplace where MTU students buy, sell, negotiate, and build real financial history — all on campus.",
+    "The marketplace where students buy, sell, negotiate prices, and build a real financial history.",
   keywords: [
     "Zill",
     "campus marketplace",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Zill — Your Campus Marketplace",
     description:
-      "Buy, sell, negotiate, and build a real credit trail. Made by MTU students, for MTU students.",
+      "The marketplace where students buy, sell, negotiate prices, and build a real financial history.",
     type: "website",
   },
 };
