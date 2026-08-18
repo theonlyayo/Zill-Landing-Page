@@ -95,7 +95,7 @@ export function FAQ() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <div className="flex items-center gap-4 mb-6">
-                <Button variant="dark">Get Help</Button>
+                <a href="mailto:zealtozill.info@gmail.com"><Button variant="dark">Get Help</Button></a>
               </div>
             </ScrollReveal>
           </div>
