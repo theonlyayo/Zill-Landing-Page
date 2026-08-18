@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import { Navbar } from "@/components/ui/Navbar";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -35,10 +36,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={archivo.variable}>
-      <body className="antialiased">
-        <Navbar />
-        {children}
+    <html lang="en" className={archivo.variable} suppressHydrationWarning>
+      <body className="antialiased dark:bg-[#111111] dark:text-[#ffffff]">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

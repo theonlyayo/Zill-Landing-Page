@@ -4,15 +4,15 @@ import { Button } from "@/components/ui/Button";
 
 export default function OurStoryPage() {
   return (
-    <main className="bg-white min-h-screen pt-32 pb-24">
+    <main className="bg-white dark:bg-[#111111] min-h-screen pt-32 pb-24">
       <article className="max-container">
         <div className="w-full">
-        <Link href="/" className="inline-flex items-center gap-2 text-[14px] text-[#8b8ba7] hover:text-[#111111] mb-12 transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-[14px] text-[#8b8ba7] hover:text-[#111111] dark:text-white mb-12 transition-colors">
           <Image src="/arrow-left.svg" alt="Back" width={16} height={16} className="w-4 h-4" /> Back to Home
         </Link>
         
         <header className="mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#111111] tracking-tight mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#111111] dark:text-white tracking-tight mb-8">
             A Zeal Became ZILL
           </h1>
           <div className="flex flex-row items-center gap-4">
@@ -25,7 +25,7 @@ export default function OurStoryPage() {
               />
             </div>
             <div className="flex flex-col">
-              <div className="font-medium text-[#111111] text-[16px]">Essien-Ekanem Utibe</div>
+              <div className="font-medium text-[#111111] dark:text-white text-[16px]">Essien-Ekanem Utibe</div>
               <div className="text-[14px] text-[#FF3700] font-medium">Founder</div>
             </div>
           </div>
@@ -44,7 +44,7 @@ export default function OurStoryPage() {
           
           <p>At the same time, buyers had their own problems. Finding products could be stressful. Getting information often meant sending messages back and forth.</p>
           
-          <blockquote className="border-l-4 border-[#FF3700] pl-6 my-8 italic text-[#666666]">
+          <blockquote className="border-l-4 border-[#FF3700] pl-6 my-8 italic text-[#666666] dark:text-[#A0A0A0]">
             <p className="mb-2">&quot;Do you have this?&quot;</p>
             <p className="mb-2">&quot;How much is it?&quot;</p>
             <p className="mb-2">&quot;Is it still available?&quot;</p>
@@ -60,7 +60,7 @@ export default function OurStoryPage() {
           
           <p>What if there was a platform that didn't require me or anyone else to decide what a buyer should see based on what they told me? What if the products could simply be there, waiting to be discovered?</p>
           
-          <p>And then came an even bigger question: <strong className="text-[#111111]">What if the transaction itself could be safer, more transparent, and built around trust?</strong></p>
+          <p>And then came an even bigger question: <strong className="text-[#111111] dark:text-white">What if the transaction itself could be safer, more transparent, and built around trust?</strong></p>
           
           <p>That question stayed with me. Because I didn't want to build just another marketplace. I didn't want to create some generic corporate app that tried to serve everyone but truly understood no one.</p>
           
@@ -82,13 +82,13 @@ export default function OurStoryPage() {
           
           <p>That is how ZILL began.</p>
           
-          <h3 className="text-2xl font-bold text-[#111111] mt-16 mb-6">A Zeal Became ZILL</h3>
+          <h3 className="text-2xl font-bold text-[#111111] dark:text-white mt-16 mb-6">A Zeal Became ZILL</h3>
           
           <p>I started with a problem. Then came the questions. Then came the countless ideas, late nights, sketches, research, system requirements, and conversations about what a better marketplace could look like for students.</p>
           
           <p>I didn't have everything figured out. I didn't even have all the tools to build it.</p>
           
-          <p>But I had something stronger: <strong className="text-[#111111]">Zeal.</strong></p>
+          <p>But I had something stronger: <strong className="text-[#111111] dark:text-white">Zeal.</strong></p>
           
           <p>The zeal to solve a problem I had personally experienced. The zeal to make selling easier for students. The zeal to give buyers a place where they could discover products for themselves. The zeal to build something that didn't just look like a marketplace, but actually understood the people using it.</p>
           
@@ -96,7 +96,7 @@ export default function OurStoryPage() {
           
           <p>It became something. It became a team. It became a vision. It became a product.</p>
           
-          <p className="text-2xl font-bold text-[#111111] mt-16 leading-[1.4]">
+          <p className="text-2xl font-bold text-[#111111] dark:text-white mt-16 leading-[1.4]">
             And eventually...<br/>That zeal became ZILL.
           </p>
         </div>

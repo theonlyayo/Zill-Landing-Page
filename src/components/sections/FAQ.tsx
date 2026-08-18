@@ -79,17 +79,17 @@ export function FAQ() {
           {/* Left: Title & Copy */}
           <div className="flex-1 w-full lg:max-w-md flex flex-col items-start lg:sticky lg:top-32 self-start">
             <ScrollReveal>
-              <span className="text-[13px] font-medium text-[#666666] mb-4 block">
+              <span className="text-[13px] font-medium text-[#666666] dark:text-[#A0A0A0] mb-4 block">
                 FAQ
               </span>
-              <h2 className="text-4xl md:text-[44px] font-bold text-brand-dark leading-[1.1] tracking-tight mb-6">
+              <h2 className="text-4xl md:text-[44px] font-bold text-brand-dark dark:text-white leading-[1.1] tracking-tight mb-6">
                 Frequently Asked<br />
                 <span className="text-[#FF3700]">Questions.</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-[14px] text-[#666666] leading-relaxed mb-8 max-w-[560px]">
-                <strong className="block mb-2 font-medium text-brand-dark">Still have questions?</strong>
+              <p className="text-[14px] text-[#666666] dark:text-[#A0A0A0] leading-relaxed mb-8 max-w-[560px]">
+                <strong className="block mb-2 font-medium text-brand-dark dark:text-white">Still have questions?</strong>
                 We&apos;re here to help. Contact Zill Support.
               </p>
             </ScrollReveal>
@@ -102,21 +102,21 @@ export function FAQ() {
 
           {/* Right: Accordion */}
           <div className="flex-1 w-full">
-            <div className="flex flex-col border-t border-[#EAEAEA]">
+            <div className="flex flex-col border-t border-[#EAEAEA] dark:border-[#333333]">
               {faqs.map((faq, index) => {
                 const isOpen = openIndex === index;
 
                 return (
                   <ScrollReveal key={index} delay={0.03 * (index % 10)}>
-                    <div className="border-b border-[#EAEAEA]">
+                    <div className="border-b border-[#EAEAEA] dark:border-[#333333]">
                       <button
                         onClick={() => setOpenIndex(isOpen ? null : index)}
                         className="w-full flex items-center justify-between py-6 md:py-8 text-left focus:outline-none group"
                       >
-                        <span className={`text-[18px] md:text-[22px] font-medium tracking-tight transition-colors duration-400 pr-6 ${isOpen ? "text-[#FF3700]" : "text-brand-dark group-hover:text-[#FF3700]"}`}>
+                        <span className={`text-[18px] md:text-[22px] font-medium tracking-tight transition-colors duration-400 pr-6 ${isOpen ? "text-[#FF3700]" : "text-brand-dark dark:text-white group-hover:text-[#FF3700]"}`}>
                           {faq.question}
                         </span>
-                        <div className="ml-4 flex-shrink-0 relative w-6 h-6 flex items-center justify-center text-brand-dark">
+                        <div className="ml-4 flex-shrink-0 relative w-6 h-6 flex items-center justify-center text-brand-dark dark:text-white">
                           {/* Horizontal line */}
                           <motion.span 
                             className={`absolute w-[18px] h-[2px] rounded-full transition-colors duration-400 ${isOpen ? "bg-[#FF3700]" : "bg-current group-hover:bg-[#FF3700]"}`}
@@ -147,7 +147,7 @@ export function FAQ() {
                               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
                               className="pb-6 md:pb-8"
                             >
-                              <p className="text-[15px] md:text-[16px] text-[#666666] leading-relaxed max-w-[540px]">
+                              <p className="text-[15px] md:text-[16px] text-[#666666] dark:text-[#A0A0A0] leading-relaxed max-w-[540px]">
                                 {faq.answer}
                               </p>
                             </motion.div>

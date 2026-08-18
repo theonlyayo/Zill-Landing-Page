@@ -13,7 +13,7 @@ const variantStyles: Record<ButtonVariant, string> = {
   brand:
     "bg-brand",
   dark:
-    "bg-[#111111]",
+    "bg-[#111111] dark:bg-white dark:text-[#111111]",
   outline:
     "bg-transparent border border-brand-dark/20 text-brand-dark",
 };
@@ -24,7 +24,7 @@ export function Button({
   className = "",
   ...props
 }: ButtonProps) {
-  const textColor = variant === "outline" ? "" : "text-white";
+  const textColor = variant === "outline" ? "" : variant === "dark" ? "text-white" : "text-white";
 
   return (
     <button

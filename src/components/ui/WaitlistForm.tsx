@@ -55,7 +55,7 @@ export function WaitlistForm({ dark = false }: WaitlistFormProps) {
     return (
       <div
         className={`flex items-center gap-3 text-[14px] font-medium ${
-          dark ? "text-white/80" : "text-brand-dark/70"
+          dark ? "text-white/80" : "text-brand-dark dark:text-white/70"
         }`}
       >
         <span className="inline-flex items-center justify-center w-6 h-6 rounded-[666px] bg-brand text-white text-xs">
@@ -75,7 +75,7 @@ export function WaitlistForm({ dark = false }: WaitlistFormProps) {
           relative flex items-center w-full h-10 px-3 
           transition-all duration-500 ease-in-out
           group overflow-hidden
-          ${dark ? "bg-white/10" : "bg-[#f4f4f4]"}
+          ${dark ? "bg-white dark:bg-[#111111]/10" : "bg-[#f4f4f4] dark:bg-[#222222]"}
           rounded-[30px] focus-within:rounded-[2px]
         `}
       >
@@ -94,7 +94,7 @@ export function WaitlistForm({ dark = false }: WaitlistFormProps) {
           onChange={(e) => setEmail(e.target.value)}
           className={`
             w-full h-full text-[14px] bg-transparent border-none outline-none px-2
-            ${dark ? "text-white placeholder:text-white/40" : "text-[#111111] placeholder:text-[#8b8ba7]"}
+            ${dark ? "text-white placeholder:text-white/40" : "text-[#111111] dark:text-white placeholder:text-[#8b8ba7]"}
             peer
           `}
         />

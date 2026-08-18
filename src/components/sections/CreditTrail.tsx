@@ -181,7 +181,7 @@ export function CreditTrail() {
             <div className="flex items-center flex-wrap gap-6 md:gap-10 mt-2">
               <Magnetic>
                 <div className="flex flex-col items-center gap-3 cursor-pointer group">
-                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-white dark:bg-[#111111]/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
                     <CheckCircle2 className="w-5 h-5 text-white/60 group-hover:text-[#FF3700] transition-colors" />
                   </div>
                   <div className="text-[11px] font-medium text-white/50 group-hover:text-white transition-colors">Verified Sales</div>
@@ -189,7 +189,7 @@ export function CreditTrail() {
               </Magnetic>
               <Magnetic>
                 <div className="flex flex-col items-center gap-3 cursor-pointer group">
-                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-white dark:bg-[#111111]/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
                     <Award className="w-5 h-5 text-white/60 group-hover:text-[#FF3700] transition-colors" />
                   </div>
                   <div className="text-[11px] font-medium text-white/50 group-hover:text-white transition-colors">Credit Built</div>
@@ -197,7 +197,7 @@ export function CreditTrail() {
               </Magnetic>
               <Magnetic>
                 <div className="flex flex-col items-center gap-3 cursor-pointer group">
-                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-white dark:bg-[#111111]/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
                     <GraduationCap className="w-5 h-5 text-white/60 group-hover:text-[#FF3700] transition-colors" />
                   </div>
                   <div className="text-[11px] font-medium text-white/50 group-hover:text-white transition-colors">Graduation Ready</div>
@@ -205,7 +205,7 @@ export function CreditTrail() {
               </Magnetic>
               <Magnetic>
                 <div className="flex flex-col items-center gap-3 cursor-pointer group">
-                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-white dark:bg-[#111111]/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
                     <Briefcase className="w-5 h-5 text-white/60 group-hover:text-[#FF3700] transition-colors" />
                   </div>
                   <div className="text-[11px] font-medium text-white/50 group-hover:text-white transition-colors">Bank Proof</div>
@@ -240,7 +240,7 @@ export function CreditTrail() {
                       whileTap={{ scale: 0.95 }}
                       className="inline-flex items-center gap-3 bg-[#FF3700] rounded-full p-1.5 pr-6 shadow-[0_10px_30px_rgba(255,55,0,0.3)] cursor-pointer"
                     >
-                      <div className="w-10 h-10 rounded-full overflow-hidden bg-white/20 relative shrink-0">
+                      <div className="w-10 h-10 rounded-full overflow-hidden bg-white dark:bg-[#111111]/20 relative shrink-0">
                         <div className="absolute inset-0 bg-gradient-to-tr from-white/40 to-white/10" />
                       </div>
                       <div className="flex flex-col justify-center">

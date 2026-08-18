@@ -42,7 +42,7 @@ export function BentoCard({
             {icon}
           </div>
         )}
-        <h3 className="text-lg md:text-xl font-bold text-brand-dark">{title}</h3>
+        <h3 className="text-lg md:text-xl font-bold text-brand-dark dark:text-white">{title}</h3>
         <p className="text-sm text-brand-gray leading-relaxed">{description}</p>
       </div>
       {children && <div>{children}</div>}

@@ -75,7 +75,7 @@ export function CampusYearbook() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="min-h-screen bg-white w-full flex flex-col font-sans"
+      className="min-h-screen bg-white dark:bg-[#111111] w-full flex flex-col font-sans"
     >
       <Navbar forceShow={true} />
 
@@ -83,15 +83,15 @@ export function CampusYearbook() {
       <main className="flex-1 w-full pt-32 pb-24">
         <div className="max-container w-full">
           
-          <Link href="/" className="inline-flex items-center gap-2 text-[14px] text-[#8b8ba7] hover:text-[#111111] mb-12 transition-colors">
+          <Link href="/" className="inline-flex items-center gap-2 text-[14px] text-[#8b8ba7] hover:text-[#111111] dark:text-white mb-12 transition-colors">
             <Image src="/arrow-left.svg" alt="Back" width={16} height={16} className="w-4 h-4" /> Back to Home
           </Link>
           
           <div className="mb-16">
-             <span className="text-[13px] font-medium text-[#666666] mb-4 block">
+             <span className="text-[13px] font-medium text-[#666666] dark:text-[#A0A0A0] mb-4 block">
                 The Zill Team
               </span>
-              <h2 className="text-4xl md:text-[44px] font-bold text-[#111111] leading-[1.1] tracking-tight max-w-2xl">
+              <h2 className="text-4xl md:text-[44px] font-bold text-[#111111] dark:text-white leading-[1.1] tracking-tight max-w-2xl">
                 The Students Behind<br/>
                 <span className="text-[#FF3700]">The Marketplace.</span>
               </h2>
@@ -138,8 +138,8 @@ function MemberCard({ member, index }: { member: any, index: number }) {
         />
       </div>
       <div>
-        <h3 className="font-bold text-brand-dark text-[16px]">{member.name}</h3>
-        <p className="text-[#666666] text-sm">{member.role}</p>
+        <h3 className="font-bold text-brand-dark dark:text-white text-[16px]">{member.name}</h3>
+        <p className="text-[#666666] dark:text-[#A0A0A0] text-sm">{member.role}</p>
       </div>
     </motion.div>
   );

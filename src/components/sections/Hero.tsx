@@ -76,7 +76,7 @@ export function Hero() {
         <div className="flex flex-col items-center text-center gap-12 lg:gap-16">
           {/* Copy side */}
           <div className="flex flex-col items-center gap-6 max-w-3xl mx-auto">
-            <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-[666px] bg-white border border-[#E5E5E5] text-xs font-medium text-brand-dark w-fit mx-auto">
+            <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-[666px] bg-white dark:bg-[#111111] border border-[#E5E5E5] dark:border-[#333333] text-xs font-medium text-brand-dark dark:text-white w-fit mx-auto">
               <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
               Coming to Mountain Top University
             </div>
@@ -86,7 +86,7 @@ export function Hero() {
               type="words"
               duration={0.6}
               stagger={0.05}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-dark leading-[1.15]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-dark dark:text-white leading-[1.15]"
             >
               Your Campus Hustle Finally Has A Home.
             </TextReveal>
@@ -106,7 +106,7 @@ export function Hero() {
 
           {/* Dashboard screenshot */}
           <div ref={imageRef} className="w-full lg:w-[60%] max-w-4xl relative mx-auto mt-4">
-            <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(17,17,17,0.1)] border border-brand-dark/10 bg-white animate-[float_6s_ease-in-out_infinite]">
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(17,17,17,0.1)] border border-brand-dark/10 dark:border-white/10 bg-white dark:bg-[#111111] animate-[float_6s_ease-in-out_infinite]">
               <Image
                 src="/dashboard.png"
                 alt="Zill seller dashboard showing ₦218,400 monthly revenue, pending offers from buyers, and store health metrics"

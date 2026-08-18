@@ -114,9 +114,9 @@ export default function TeamPage() {
               Unlocking in {Math.ceil(timeLeft)}s
             </div>
             
-            <div className="w-full max-w-xs md:max-w-md h-[2px] bg-white/20 rounded-full overflow-hidden mx-8">
+            <div className="w-full max-w-xs md:max-w-md h-[2px] bg-white dark:bg-[#111111]/20 rounded-full overflow-hidden mx-8">
               <motion.div 
-                className="h-full bg-white"
+                className="h-full bg-white dark:bg-[#111111]"
                 initial={{ width: "0%" }}
                 animate={{ width: `${(1 - Math.max(0, timeLeft) / 5) * 100}%` }}
                 transition={{ duration: 0.1, ease: "linear" }}
@@ -134,7 +134,7 @@ export default function TeamPage() {
             exit={{ opacity: 0, y: 10 }}
             className="absolute bottom-12 left-0 right-0 z-30 flex justify-center pointer-events-none"
           >
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium shadow-2xl">
+            <div className="bg-white dark:bg-[#111111]/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium shadow-2xl">
               {nudgeMessage}
             </div>
           </motion.div>

@@ -107,7 +107,7 @@ const TiltCard = ({ item, index }: { item: typeof items[0], index: number }) => 
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      className={`${item.colSpan} bento-card-new bg-white rounded-[32px] p-6 md:p-8 flex flex-col items-start justify-between shadow-[0_8px_40px_rgb(0,0,0,0.03)] border border-[#E5E5E5]/50 group cursor-pointer transition-shadow duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]`}
+      className={`${item.colSpan} bento-card-new bg-white dark:bg-[#111111] rounded-[32px] p-6 md:p-8 flex flex-col items-start justify-between shadow-[0_8px_40px_rgb(0,0,0,0.03)] border border-[#E5E5E5] dark:border-[#333333]/50 group cursor-pointer transition-shadow duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]`}
     >
       {/* Top Graphic Section */}
       <div className={`w-full relative ${item.imageContainerClass} mb-10 flex items-center justify-center`} style={{ transformStyle: "preserve-3d" }}>
@@ -132,10 +132,10 @@ const TiltCard = ({ item, index }: { item: typeof items[0], index: number }) => 
 
       {/* Bottom Text Section */}
       <div className="relative z-10" style={{ transform: "translateZ(20px)" }}>
-        <h3 className="text-[19px] md:text-[21px] font-bold text-[#111111] mb-3 tracking-tight">
+        <h3 className="text-[19px] md:text-[21px] font-bold text-[#111111] dark:text-white mb-3 tracking-tight">
           {item.title}
         </h3>
-        <p className="text-[#666666] text-[12px] leading-relaxed">
+        <p className="text-[#666666] dark:text-[#A0A0A0] text-[12px] leading-relaxed">
           {item.description}
         </p>
       </div>
@@ -178,10 +178,10 @@ export function Features() {
         
         {/* Title Block */}
         <div className="mb-16 md:mb-20 max-w-3xl">
-          <span className="text-[13px] font-medium text-[#666666] mb-4 block">
+          <span className="text-[13px] font-medium text-[#666666] dark:text-[#A0A0A0] mb-4 block">
             What we Offer
           </span>
-          <h2 className="text-4xl md:text-[44px] font-bold text-brand-dark leading-[1.1] tracking-tight mb-6">
+          <h2 className="text-4xl md:text-[44px] font-bold text-brand-dark dark:text-white leading-[1.1] tracking-tight mb-6">
             Everything campus commerce needs.<br />
             <span className="text-[#FF3700]">Nothing it doesn&apos;t.</span>
           </h2>

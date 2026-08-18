@@ -107,7 +107,7 @@ function TrustCard({ pillar }: { pillar: typeof pillars[0] }) {
       ref={ref}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative bg-white rounded-[2rem] p-8 md:p-10 border border-[#EAEAEA] shadow-[0_10px_40px_rgba(0,0,0,0.03)] flex flex-col overflow-hidden"
+      className="relative bg-white dark:bg-[#111111] rounded-[2rem] p-8 md:p-10 border border-[#EAEAEA] dark:border-[#333333] shadow-[0_10px_40px_rgba(0,0,0,0.03)] flex flex-col overflow-hidden"
     >
       {/* Soft orange bloom aura behind the icon on hover */}
       <motion.div 
@@ -121,12 +121,12 @@ function TrustCard({ pillar }: { pillar: typeof pillars[0] }) {
       />
 
       {/* Icon Wrapper */}
-      <div className="w-16 h-16 rounded-2xl bg-[#F7F7F7] flex items-center justify-center text-[#FF3700] mb-8 relative z-10 border border-[#EAEAEA]">
+      <div className="w-16 h-16 rounded-2xl bg-[#F7F7F7] flex items-center justify-center text-[#FF3700] mb-8 relative z-10 border border-[#EAEAEA] dark:border-[#333333]">
         {pillar.icon(isActive)}
       </div>
       
       {/* Content */}
-      <h3 className="text-xl md:text-[22px] font-bold text-brand-dark mb-4 tracking-tight relative z-10">
+      <h3 className="text-xl md:text-[22px] font-bold text-brand-dark dark:text-white mb-4 tracking-tight relative z-10">
         {pillar.title}
       </h3>
       <p className="text-[15px] text-brand-gray leading-relaxed relative z-10">
@@ -138,16 +138,16 @@ function TrustCard({ pillar }: { pillar: typeof pillars[0] }) {
 
 export function Trust() {
   return (
-    <section className="py-24 md:py-32 bg-white relative z-10">
+    <section className="py-24 md:py-32 bg-white dark:bg-[#111111] relative z-10">
       <div className="max-container w-full">
         
         {/* Heading Section */}
         <ScrollReveal>
           <div className="mb-16 md:mb-20">
-            <span className="text-[13px] font-medium text-[#666666] mb-4 block">
+            <span className="text-[13px] font-medium text-[#666666] dark:text-[#A0A0A0] mb-4 block">
               Trust & Safety
             </span>
-            <h2 className="text-4xl md:text-[44px] font-bold text-brand-dark leading-[1.1] tracking-tight mb-6">
+            <h2 className="text-4xl md:text-[44px] font-bold text-brand-dark dark:text-white leading-[1.1] tracking-tight mb-6">
               Safety isn&apos;t an afterthought.<br />
               <span className="text-[#FF3700]">It&apos;s the foundation.</span>
             </h2>
