@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @import "@fontsource-variable/tasa-orbiter";
 
+
+@custom-variant dark (&:is(.dark *));
+
+.dark {
+  --background: #111111;
+  --foreground: #FFFFFF;
+}
+
 :root {
   --brand: #FF3700;
   --brand-dark: #111111;
