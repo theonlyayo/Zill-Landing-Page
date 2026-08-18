@@ -21,7 +21,6 @@ export function Hero() {
 
       const tl = gsap.timeline({ delay: 0.3 });
 
-      // Subheadline fades in after headline SplitText completes
       tl.from(subRef.current, {
         opacity: 0,
         y: 15,
@@ -29,7 +28,6 @@ export function Hero() {
         ease: "power2.out",
       }, "+=0.3");
 
-      // Form fades in
       tl.from(
         formRef.current,
         {
@@ -41,7 +39,6 @@ export function Hero() {
         "-=0.2"
       );
 
-      // Dashboard image enters
       tl.from(
         imageRef.current,
         {
@@ -54,7 +51,6 @@ export function Hero() {
         "-=0.3"
       );
 
-      // Parallax scroll effect (desktop only to prevent mobile jitter)
       if (window.innerWidth >= 768) {
         gsap.to(sectionRef.current, {
           yPercent: 30,

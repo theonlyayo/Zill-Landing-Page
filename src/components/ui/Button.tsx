@@ -24,7 +24,6 @@ export function Button({
   className = "",
   ...props
 }: ButtonProps) {
-  // If outline, keep the text color specified in the variant. Otherwise white.
   const textColor = variant === "outline" ? "" : "text-white";
 
   return (

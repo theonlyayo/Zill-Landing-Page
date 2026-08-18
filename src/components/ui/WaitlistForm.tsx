@@ -21,9 +21,7 @@ export function WaitlistForm({ dark = false }: WaitlistFormProps) {
     setLoading(true);
     setError(null);
 
-    // Fallback if env vars aren't set yet (e.g. local dev before Vercel)
     if (!supabase) {
-      console.log("Mock Waitlist signup (Supabase not configured):", email);
       setTimeout(() => {
         setSubmitted(true);
         setLoading(false);
@@ -38,7 +36,6 @@ export function WaitlistForm({ dark = false }: WaitlistFormProps) {
         
       if (supabaseError) {
         if (supabaseError.code === '23505') {
-          // Unique violation - already on the waitlist
           setSubmitted(true);
         } else {
           throw supabaseError;

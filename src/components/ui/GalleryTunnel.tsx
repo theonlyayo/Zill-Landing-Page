@@ -216,7 +216,6 @@ function __OriginkitBase_ImageBox(props: Partial<ImageBoxProps>) {
                 },
                 undefined,
                 () => {
-                    // A dead URL should cost a blank slab, not a broken tunnel.
                 }
             );
             return mat;

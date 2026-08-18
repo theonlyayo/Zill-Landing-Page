@@ -67,11 +67,9 @@ const TiltCard = ({ item, index }: { item: typeof items[0], index: number }) => 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Spring physics for buttery smooth tilt return
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15, mass: 0.5 });
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 15, mass: 0.5 });
 
-  // Map mouse position to rotation (subtle, 5 degrees max)
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
 
@@ -85,7 +83,6 @@ const TiltCard = ({ item, index }: { item: typeof items[0], index: number }) => 
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
     
-    // Normalize coordinates between -0.5 and 0.5
     const xPct = mouseX / width - 0.5;
     const yPct = mouseY / height - 0.5;
     
@@ -158,7 +155,6 @@ export function Features() {
 
       const cards = gsap.utils.toArray<HTMLElement>(".bento-card-new");
       
-      // Playful spring entrance
       gsap.from(cards, {
         opacity: 0,
         y: 80,

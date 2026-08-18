@@ -43,22 +43,18 @@ export function CreditTrail() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const pRefs = useRef<HTMLParagraphElement[]>([]);
   
-  // Mouse tracking for parallax void
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
   const smoothMouseX = useSpring(mouseX, { stiffness: 50, damping: 20, mass: 0.5 });
   const smoothMouseY = useSpring(mouseY, { stiffness: 50, damping: 20, mass: 0.5 });
 
-  // Floating quote moves opposite to mouse
   const quoteX = useTransform(smoothMouseX, [-0.5, 0.5], [30, -30]);
   const quoteY = useTransform(smoothMouseY, [-0.5, 0.5], [30, -30]);
   
-  // Pill moves with mouse slightly
   const pillX = useTransform(smoothMouseX, [-0.5, 0.5], [-15, 15]);
   const pillY = useTransform(smoothMouseY, [-0.5, 0.5], [-15, 15]);
 
-  // Glowing Aura position
   const auraX = useTransform(mouseX, [-0.5, 0.5], ["0%", "100%"]);
   const auraY = useTransform(mouseY, [-0.5, 0.5], ["0%", "100%"]);
   const [isHoveringSection, setIsHoveringSection] = useState(false);
@@ -70,7 +66,6 @@ export function CreditTrail() {
       ).matches;
       if (prefersReduced) return;
 
-      // Background color transition on scroll
       gsap.to(sectionRef.current, {
         backgroundColor: "#111111",
         scrollTrigger: {
@@ -81,7 +76,6 @@ export function CreditTrail() {
         },
       });
 
-      // Label and Headline entrance
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -108,9 +102,7 @@ export function CreditTrail() {
         }, "-=0.2");
       }
 
-      // SCROLL-LINKED TEXT SCRUBBING
       if (pRefs.current.length > 0) {
-        // We split the paragraphs into lines and scrub their opacity on scroll
         const splitLines = new SplitText(pRefs.current, { type: "lines" });
         gsap.fromTo(splitLines.lines,
           { opacity: 0.15, y: 10 },
