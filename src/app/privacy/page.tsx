@@ -137,8 +137,8 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-bold text-[#111111] mt-12 mb-6">10. Your Privacy Rights</h2>
             <p>Subject to applicable law, you may have rights concerning your personal information, including the right to request access, correction, or deletion. To make a privacy request, contact:</p>
             <p className="mt-4">
-              <strong>Privacy Contact:</strong> hello@zill.store<br/>
-              <strong>Data Protection Contact:</strong> hello@zill.store
+              <strong>Privacy Contact:</strong> zealtozill.info@gmail.com<br/>
+              <strong>Data Protection Contact:</strong> zealtozill.info@gmail.com
             </p>
 
             <h2 className="text-2xl font-bold text-[#111111] mt-12 mb-6">11. Children&apos;s Privacy</h2>

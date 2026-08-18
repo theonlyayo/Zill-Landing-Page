@@ -37,8 +37,8 @@ export function Footer() {
             <div className="flex flex-col gap-4">
               <h4 className="text-[13px] font-semibold text-brand-dark uppercase tracking-wider mb-2">Support</h4>
               <Link href="/#faq" className="text-[14px] text-[#666666] hover:text-[#FF3700] transition-colors">Help Center</Link>
-              <a href="mailto:hello@zill.store" className="text-[14px] text-[#666666] hover:text-[#FF3700] transition-colors">Contact Us</a>
-              <a href="mailto:hello@zill.store" className="text-[14px] text-[#666666] hover:text-[#FF3700] transition-colors">Report an Issue</a>
+              <a href="mailto:zealtozill.info@gmail.com" className="text-[14px] text-[#666666] hover:text-[#FF3700] transition-colors">Contact Us</a>
+              <a href="mailto:zealtozill.info@gmail.com" className="text-[14px] text-[#666666] hover:text-[#FF3700] transition-colors">Report an Issue</a>
             </div>
 
             {/* Column 3 */}
@@ -73,7 +73,7 @@ export function Footer() {
               </svg>
             </a>
             {/* Email */}
-            <a href="mailto:hello@zill.store" aria-label="Email Zill" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
+            <a href="mailto:zealtozill.info@gmail.com" aria-label="Email Zill" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                 <path d="M2 4L12 13L22 4"></path>

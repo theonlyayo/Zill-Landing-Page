@@ -113,7 +113,7 @@ export default function TermsPage() {
             <p>For questions regarding these Terms:</p>
             <p className="mt-4">
               <strong>Zill</strong><br/>
-              <strong>Email:</strong> hello@zill.store<br/>
+              <strong>Email:</strong> zealtozill.info@gmail.com<br/>
               <strong>Website:</strong> https://zill.store
             </p>
           </div>
