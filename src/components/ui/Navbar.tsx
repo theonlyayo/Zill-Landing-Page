@@ -69,7 +69,8 @@ export function Navbar({ forceShow = false }: { forceShow?: boolean }) {
 
         {/* Right: Secondary Button & Mobile Toggle */}
         <div className="flex-1 flex justify-end items-center gap-4">
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <Button
               variant="dark"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
