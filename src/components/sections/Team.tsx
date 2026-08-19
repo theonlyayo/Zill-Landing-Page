@@ -4,14 +4,19 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { KlarnaCarousel } from "@/components/ui/KlarnaCarousel";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export function Team() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const bgColor = mounted && resolvedTheme === "dark" ? "#000000" : "#ffffff";
   return (
-    <section className="py-24 md:py-32 bg-white dark:bg-[#111111] relative z-10">
+    <section className="py-24 md:py-32 bg-white dark:bg-[#000000] relative z-10 transition-colors duration-500 ease-in-out">
       <div className="max-container w-full">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           
-          {/* Left: Copy & Actions */}
           <div className="flex-1 w-full max-w-xl flex flex-col items-start">
             <ScrollReveal>
               <span className="text-[13px] font-medium text-[#666666] dark:text-[#A0A0A0] mb-4 block">
@@ -41,10 +46,9 @@ export function Team() {
             </ScrollReveal>
           </div>
 
-          {/* Right: Carousel */}
           <div className="flex-1 w-full relative flex items-center justify-center lg:justify-end min-h-[650px]">
-            <ScrollReveal delay={0.3} className="w-full h-full absolute inset-0">
-              <KlarnaCarousel backgroundColor="#ffffff" />
+            <ScrollReveal delay={0.3} className="w-full max-w-[400px] h-full flex flex-col justify-center">
+              <KlarnaCarousel cardRadius={4} backgroundColor={bgColor} labelColor={mounted && resolvedTheme === "dark" ? "#ffffff" : "#111111"} />
             </ScrollReveal>
           </div>
 

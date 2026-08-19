@@ -1,0 +1,38 @@
+src/app/our-story/page.tsx:7: <main className="bg-white dark:bg-[#111111] min-h-screen pt-32 pb-24">
+src/app/privacy/page.tsx:8: <main className="bg-white dark:bg-[#111111] min-h-screen pt-32 pb-24">
+src/app/terms/page.tsx:8: <main className="bg-white dark:bg-[#111111] min-h-screen pt-32 pb-24">
+src/app/team/page.tsx:115: <div className="w-full max-w-xs md:max-w-md h-[2px] bg-white dark:bg-[#111111]/20 rounded-full overflow-hidden mx-8">
+src/app/team/page.tsx:117: className="h-full bg-white dark:bg-[#111111]"
+src/app/team/page.tsx:135: <div className="bg-white dark:bg-[#111111]/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium shadow-2xl">
+src/components/ui/CampusYearbook.tsx:78: className="min-h-screen bg-white dark:bg-[#111111] w-full flex flex-col font-sans"
+src/components/ui/Navbar.tsx:40: <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#000000] backdrop-blur-md transition-colors duration-500 ease-in-out">
+src/components/ui/Navbar.tsx:86: className="w-6 h-0.5 bg-brand-dark dark:bg-white mb-1.5 block rounded-full origin-center"
+src/components/ui/Navbar.tsx:90: className="w-6 h-0.5 bg-brand-dark dark:bg-white mb-1.5 block rounded-full"
+src/components/ui/Navbar.tsx:94: className="w-6 h-0.5 bg-brand-dark dark:bg-white block rounded-full origin-center"
+src/components/ui/Navbar.tsx:108: className="absolute top-full left-0 right-0 bg-white/95 dark:bg-[#111111]/95 backdrop-blur-md shadow-lg border-t border-[#EAEAEA] dark:border-[#333333] md:hidden"
+src/components/ui/KlarnaCarousel.tsx:275: boxSizing: "border-box",
+src/components/ui/WaitlistForm.tsx:77: ${dark ? "bg-white dark:bg-[#111111]/10" : "bg-[#f4f4f4] dark:bg-[#222222]"}
+src/components/ui/StepCard.tsx:13: ${active ? "bg-white dark:bg-[#111111] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border-brand-dark/10 dark:border-white/10" : "bg-transparent border-transparent"}
+src/components/ui/ThemeToggle.tsx:15: <button className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors" aria-label="Toggle theme">
+src/components/ui/ThemeToggle.tsx:24: className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors text-[#292D32] dark:text-[#FFFFFF]"
+src/components/ui/Button.tsx:16: "bg-[#111111] dark:bg-white dark:text-[#111111]",
+src/components/ui/Button.tsx:18: "bg-transparent border border-brand-dark/20 text-brand-dark",
+src/components/sections/Hero.tsx:73: className="section-padding min-h-[100svh] flex items-center pt-24 md:pt-32 pb-16 relative z-0 bg-white dark:bg-[#111111] transition-colors duration-500 ease-in-out"
+src/components/sections/Hero.tsx:78: <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-[666px] bg-white dark:bg-[#111111] border border-[#E5E5E5] dark:border-[#333333] text-xs font-medium text-brand-dark dark:text-white w-fit mx-auto transition-colors duration-500 ease-in-out">
+src/components/sections/Hero.tsx:107: <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(17,17,17,0.1)] border border-brand-dark/10 dark:border-white/10 bg-white dark:bg-[#111111] animate-[float_6s_ease-in-out_infinite] transition-colors duration-500 ease-in-out">
+src/components/sections/CreditTrail.tsx:185: <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
+src/components/sections/CreditTrail.tsx:193: <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
+src/components/sections/CreditTrail.tsx:201: <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
+src/components/sections/CreditTrail.tsx:209: <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FF3700]/20 group-hover:border-[#FF3700]/50 transition-colors">
+src/components/sections/CreditTrail.tsx:241: <div className="w-10 h-10 rounded-full overflow-hidden bg-white/20 relative shrink-0">
+src/components/sections/OurStory.tsx:80: <section ref={sectionRef} className="py-24 md:py-32 bg-white dark:bg-[#000000] relative z-10 transition-colors duration-500 ease-in-out">
+src/components/sections/Team.tsx:16: <section className="py-24 md:py-32 bg-white dark:bg-[#111111] relative z-10 transition-colors duration-500 ease-in-out">
+src/components/sections/Features.tsx:110: className={`${item.colSpan} bento-card-new bg-white dark:bg-[#111111] rounded-[32px] p-6 md:p-8 flex flex-col items-start justify-between shadow-[0_8px_40px_rgb(0,0,0,0.03)] border border-[#E5E5E5] dark:border-[#333333]/50 group cursor-pointer transition-shadow duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]`}
+src/components/sections/FinalCTA.tsx:8: <section className="section-padding bg-white dark:bg-[#111111]">
+src/components/sections/Footer.tsx:6: <footer className="bg-white dark:bg-[#111111] py-16 px-6 md:px-12 border-t border-[#EAEAEA] dark:border-[#333333]">
+src/components/sections/Footer.tsx:53: <a href="https://x.com/zealtozill" aria-label="Zill on Twitter" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
+src/components/sections/Footer.tsx:58: <a href="https://www.instagram.com/zealtozill?utm_source=qr&igsh=aHR0Zmd4dzF4c3Vv&igsi=aHR0Zmd4dzF4c3Vv" aria-label="Zill on Instagram" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
+src/components/sections/Footer.tsx:65: <a href="mailto:zealtozill.info@gmail.com" aria-label="Email Zill" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
+src/components/sections/Trust.tsx:110: className="relative bg-white dark:bg-[#000000] rounded-[2rem] p-8 md:p-10 border border-[#EAEAEA] dark:border-[#333333] shadow-[0_10px_40px_rgba(0,0,0,0.03)] flex flex-col overflow-hidden transition-colors duration-500 ease-in-out"
+src/components/sections/Trust.tsx:138: <section className="py-24 md:py-32 bg-white dark:bg-[#000000] relative z-10 transition-colors duration-500 ease-in-out">
+src/components/sections/FAQ.tsx:109: <div className="border-b border-[#EAEAEA] dark:border-[#333333]">

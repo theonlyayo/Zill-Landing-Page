@@ -72,11 +72,10 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 md:py-32 bg-[#F9F9F9] relative z-10">
+    <section className="py-24 md:py-32 bg-[#F9F9F9] dark:bg-[#000000] relative z-10 transition-colors duration-500 ease-in-out">
       <div className="max-container w-full">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
           
-          {/* Left: Title & Copy */}
           <div className="flex-1 w-full lg:max-w-md flex flex-col items-start lg:sticky lg:top-32 self-start">
             <ScrollReveal>
               <span className="text-[13px] font-medium text-[#666666] dark:text-[#A0A0A0] mb-4 block">
@@ -100,7 +99,6 @@ export function FAQ() {
             </ScrollReveal>
           </div>
 
-          {/* Right: Accordion */}
           <div className="flex-1 w-full">
             <div className="flex flex-col border-t border-[#EAEAEA] dark:border-[#333333]">
               {faqs.map((faq, index) => {
@@ -113,19 +111,17 @@ export function FAQ() {
                         onClick={() => setOpenIndex(isOpen ? null : index)}
                         className="w-full flex items-center justify-between py-6 md:py-8 text-left focus:outline-none group"
                       >
-                        <span className={`text-[18px] md:text-[22px] font-medium tracking-tight transition-colors duration-400 pr-6 ${isOpen ? "text-[#FF3700]" : "text-brand-dark dark:text-white group-hover:text-[#FF3700]"}`}>
+                        <span className={`text-[18px] md:text-[22px] font-medium tracking-tight transition-colors duration-500 ease-in-out pr-6 ${isOpen ? "text-[#FF3700]" : "text-brand-dark dark:text-white group-hover:text-[#FF3700]"}`}>
                           {faq.question}
                         </span>
                         <div className="ml-4 flex-shrink-0 relative w-6 h-6 flex items-center justify-center text-brand-dark dark:text-white">
-                          {/* Horizontal line */}
                           <motion.span 
-                            className={`absolute w-[18px] h-[2px] rounded-full transition-colors duration-400 ${isOpen ? "bg-[#FF3700]" : "bg-current group-hover:bg-[#FF3700]"}`}
+                            className={`absolute w-[18px] h-[2px] rounded-full transition-colors duration-500 ease-in-out ${isOpen ? "bg-[#FF3700]" : "bg-current group-hover:bg-[#FF3700]"}`}
                             animate={{ rotate: isOpen ? 180 : 0 }}
                             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                           />
-                          {/* Vertical line */}
                           <motion.span 
-                            className={`absolute w-[18px] h-[2px] rounded-full transition-colors duration-400 ${isOpen ? "bg-[#FF3700]" : "bg-current group-hover:bg-[#FF3700]"}`}
+                            className={`absolute w-[18px] h-[2px] rounded-full transition-colors duration-500 ease-in-out ${isOpen ? "bg-[#FF3700]" : "bg-current group-hover:bg-[#FF3700]"}`}
                             animate={{ rotate: isOpen ? 180 : 90, opacity: isOpen ? 0 : 1 }}
                             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                           />

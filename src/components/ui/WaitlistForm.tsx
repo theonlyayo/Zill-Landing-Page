@@ -69,18 +69,16 @@ export function WaitlistForm({ dark = false }: WaitlistFormProps) {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-lg">
       
-      {/* Uiverse Animated Input */}
       <div 
         className={`
           relative flex items-center w-full h-10 px-3 
           transition-all duration-500 ease-in-out
           group overflow-hidden
-          ${dark ? "bg-white dark:bg-[#111111]/10" : "bg-[#f4f4f4] dark:bg-[#222222]"}
+          ${dark ? "bg-white dark:bg-[#000000]/10" : "bg-[#f4f4f4] dark:bg-[#222222]"}
           rounded-[30px] focus-within:rounded-[2px]
         `}
       >
-        {/* Search Icon */}
-        <div className="flex-shrink-0 text-[#8b8ba7] border-none bg-transparent flex items-center justify-center w-[17px] mt-[1px]">
+        <div className="flex-shrink-0 text-[#666666] border-none bg-transparent flex items-center justify-center w-[17px] mt-[1px]">
           <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
               <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" strokeWidth="1.333" strokeLinecap="round" strokeLinejoin="round"></path>
           </svg>
@@ -94,17 +92,16 @@ export function WaitlistForm({ dark = false }: WaitlistFormProps) {
           onChange={(e) => setEmail(e.target.value)}
           className={`
             w-full h-full text-[14px] bg-transparent border-none outline-none px-2
-            ${dark ? "text-white placeholder:text-white/40" : "text-[#111111] dark:text-white placeholder:text-[#8b8ba7]"}
+            ${dark ? "text-white placeholder:text-[#666666]" : "text-[#111111] dark:text-white placeholder:text-[#666666]"}
             peer
           `}
         />
         
-        {/* Reset Button */}
         <button 
           type="button" 
           onClick={() => setEmail("")}
           className={`
-            flex-shrink-0 border-none bg-transparent text-[#8b8ba7] transition-all duration-200
+            flex-shrink-0 border-none bg-transparent text-[#666666] transition-all duration-200
             ${email.length > 0 ? "opacity-100 visible" : "opacity-0 invisible"}
           `}
         >
@@ -113,7 +110,6 @@ export function WaitlistForm({ dark = false }: WaitlistFormProps) {
           </svg>
         </button>
 
-        {/* Animated Border */}
         <div className="absolute left-0 bottom-0 w-full h-[2px] bg-brand origin-center scale-x-0 transition-transform duration-300 ease-out group-focus-within:scale-x-100 rounded-[1px]" />
       </div>
 

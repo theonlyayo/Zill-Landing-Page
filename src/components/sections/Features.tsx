@@ -28,6 +28,7 @@ const items = [
     title: "Credibility Score",
     description: "A visible trust score (0–100) built from response rate, active listings, offer conversion, and dispute history. Your campus reputation, quantified.",
     image: "/bento/credibility-score.png",
+    darkImage: "/bento/credibility-dark.svg",
     colSpan: "md:col-span-2",
     imageScale: "scale-[0.62]",
     imageContainerClass: "aspect-[2/1] md:aspect-[3/1]",
@@ -46,6 +47,7 @@ const items = [
     title: "Verified Students Only",
     description: "Every user is a verified student. No anonymous accounts, no outsiders. Just your campus community, building trust together.",
     image: "/bento/verified.svg",
+    darkImage: "/bento/verified-dark.svg",
     colSpan: "md:col-span-3",
     imageScale: "scale-[0.45]",
     imageContainerClass: "aspect-[3/1] md:aspect-[4/1]",
@@ -107,11 +109,9 @@ const TiltCard = ({ item, index }: { item: typeof items[0], index: number }) => 
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      className={`${item.colSpan} bento-card-new bg-white dark:bg-[#111111] rounded-[32px] p-6 md:p-8 flex flex-col items-start justify-between shadow-[0_8px_40px_rgb(0,0,0,0.03)] border border-[#E5E5E5] dark:border-[#333333]/50 group cursor-pointer transition-shadow duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]`}
+      className={`${item.colSpan} bento-card-new bg-white dark:bg-[#111111] rounded-[32px] p-6 md:p-8 flex flex-col items-start justify-between shadow-[0_8px_40px_rgb(0,0,0,0.03)] dark:border-transparent group cursor-pointer transition-shadow duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]`}
     >
-      {/* Top Graphic Section */}
       <div className={`w-full relative ${item.imageContainerClass} mb-10 flex items-center justify-center`} style={{ transformStyle: "preserve-3d" }}>
-        {/* Playful Spring Graphic using Framer Motion */}
         <motion.div
           animate={isActive ? { scale: 1.1, rotateZ: item.rotate, z: 40 } : { scale: 1, rotateZ: 0, z: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 12, mass: 0.8 }}
@@ -123,14 +123,22 @@ const TiltCard = ({ item, index }: { item: typeof items[0], index: number }) => 
               src={item.image}
               alt={item.title}
               fill
-              className="object-contain drop-shadow-xl"
-              priority={index < 3} // Prioritize LCP for top row
+              className={`object-contain drop-shadow-xl ${item.darkImage ? "dark:hidden" : ""}`}
+              priority={index < 3}
             />
+            {item.darkImage && (
+              <Image
+                src={item.darkImage}
+                alt={item.title}
+                fill
+                className="object-contain drop-shadow-xl hidden dark:block"
+                priority={index < 3}
+              />
+            )}
           </div>
         </motion.div>
       </div>
 
-      {/* Bottom Text Section */}
       <div className="relative z-10" style={{ transform: "translateZ(20px)" }}>
         <h3 className="text-[19px] md:text-[21px] font-bold text-[#111111] dark:text-white mb-3 tracking-tight">
           {item.title}
@@ -161,7 +169,7 @@ export function Features() {
         scale: 0.9,
         duration: 1.2,
         stagger: 0.1,
-        ease: "elastic.out(1, 0.7)", // Crazy bouncy ease
+        ease: "elastic.out(1, 0.7)",
         scrollTrigger: {
           trigger: gridRef.current,
           start: "top 85%",
@@ -173,10 +181,9 @@ export function Features() {
   );
 
   return (
-    <section className="py-24 md:py-32 bg-[#F8F9FA] relative z-10">
+    <section className="py-24 md:py-32 bg-[#F8F9FA] dark:bg-[#000000] relative z-10 transition-colors duration-500 ease-in-out">
       <div className="max-container w-full">
         
-        {/* Title Block */}
         <div className="mb-16 md:mb-20 max-w-3xl">
           <span className="text-[13px] font-medium text-[#666666] dark:text-[#A0A0A0] mb-4 block">
             What we Offer
@@ -187,7 +194,6 @@ export function Features() {
           </h2>
         </div>
 
-        {/* New Bento Grid - Playful 3D UI */}
         <div
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-6 gap-8"

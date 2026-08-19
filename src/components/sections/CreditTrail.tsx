@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { gsap, ScrollTrigger, useGSAP, SplitText } from "@/lib/gsap-config";
+import { useTheme } from "next-themes";
 import { CheckCircle2, Award, Briefcase, GraduationCap } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
@@ -15,7 +16,7 @@ const Magnetic = ({ children, className }: { children: React.ReactNode, classNam
     const { height, width, left, top } = ref.current!.getBoundingClientRect();
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
-    setPosition({ x: middleX * 0.3, y: middleY * 0.3 }); // 0.3 pull factor
+    setPosition({ x: middleX * 0.3, y: middleY * 0.3 });
   };
 
   const reset = () => {
@@ -37,6 +38,7 @@ const Magnetic = ({ children, className }: { children: React.ReactNode, classNam
 };
 
 export function CreditTrail() {
+  const { resolvedTheme } = useTheme();
   const sectionRef = useRef<HTMLElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
@@ -66,15 +68,17 @@ export function CreditTrail() {
       ).matches;
       if (prefersReduced) return;
 
-      gsap.to(sectionRef.current, {
-        backgroundColor: "#111111",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          end: "top 30%",
-          scrub: 1,
-        },
-      });
+      if (resolvedTheme !== "dark") {
+        gsap.to(sectionRef.current, {
+          backgroundColor: "#111111",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "top 30%",
+            scrub: 1,
+          },
+        });
+      }
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -113,15 +117,15 @@ export function CreditTrail() {
             ease: "none",
             scrollTrigger: {
               trigger: leftRef.current,
-              start: "top 60%", // start scrubbing when top of text hits 60% of viewport
-              end: "bottom 60%", // end when bottom of text hits 60%
-              scrub: 0.5, // 0.5 sec smoothing
+              start: "top 60%",
+              end: "bottom 60%",
+              scrub: 0.5,
             }
           }
         );
       }
     },
-    { scope: sectionRef }
+    { scope: sectionRef, dependencies: [resolvedTheme] }
   );
 
   const addToRefs = (el: HTMLParagraphElement | null) => {
@@ -145,15 +149,13 @@ export function CreditTrail() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHoveringSection(true)}
       onMouseLeave={() => setIsHoveringSection(false)}
-      className="py-24 md:py-32 transition-colors relative z-10 overflow-hidden"
-      style={{ backgroundColor: "#FFFFFF" }}
+      className="py-24 md:py-32 bg-[#FFFFFF] dark:bg-[#000000] relative z-10 overflow-hidden transition-colors duration-500 ease-in-out"
     >
       
 
       <div className="max-container w-full relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           
-          {/* Left: Copy & Actions */}
           <div ref={leftRef} className="flex-1 w-full max-w-xl flex flex-col items-start">
             <span ref={labelRef} className="text-[13px] font-medium text-white/70 mb-4 block">
               The Graduation Credit Trail
@@ -177,7 +179,6 @@ export function CreditTrail() {
               won&apos;t vanish, they&apos;ll follow you.
             </p>
 
-            {/* Metrics/Icons row - MAGNETIC */}
             <div className="flex items-center flex-wrap gap-6 md:gap-10 mt-2">
               <Magnetic>
                 <div className="flex flex-col items-center gap-3 cursor-pointer group">
@@ -214,12 +215,10 @@ export function CreditTrail() {
             </div>
           </div>
 
-          {/* Right: Testimonial */}
           <div className="flex-1 w-full relative flex items-center justify-end py-10 lg:py-0">
             <div className="w-full max-w-[500px]">
               <div className="flex items-start gap-5 md:gap-6 relative">
                 
-                {/* Floating Parallax Quote */}
                 <motion.div 
                   style={{ x: quoteX, y: quoteY }} 
                   className="text-[#FF3700] text-6xl md:text-7xl font-bold leading-none pt-2 cursor-default"
@@ -232,7 +231,6 @@ export function CreditTrail() {
                     I&apos;ve been selling hoodies on campus since year one, and honestly, Zill just made it official. Knowing I&apos;m graduating with a clean, verifiable record of all my sales and my own <span className="text-white font-bold">.store</span> domain? It&apos;s wild. No bank is going to ask me if I really have business experience. They&apos;ll just see the proof.
                   </p>
                   
-                  {/* Magnetic Parallax Pill */}
                   <Magnetic className="inline-block">
                     <motion.div 
                       style={{ x: pillX, y: pillY }}

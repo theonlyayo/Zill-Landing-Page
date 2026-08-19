@@ -36,9 +36,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={archivo.variable} suppressHydrationWarning>
-      <body className="antialiased dark:bg-[#111111] dark:text-[#ffffff]">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <html lang="en" className={`${archivo.variable} bg-white dark:bg-[#000000]`} suppressHydrationWarning>
+      <body className="antialiased dark:bg-[#000000] dark:text-[#ffffff] transition-colors duration-500 ease-in-out">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem enableColorScheme>
           <Navbar />
           {children}
         </ThemeProvider>

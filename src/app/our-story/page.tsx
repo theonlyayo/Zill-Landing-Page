@@ -4,11 +4,14 @@ import { Button } from "@/components/ui/Button";
 
 export default function OurStoryPage() {
   return (
-    <main className="bg-white dark:bg-[#111111] min-h-screen pt-32 pb-24">
+    <main className="bg-white dark:bg-[#000000] min-h-screen pt-32 pb-24">
       <article className="max-container">
         <div className="w-full">
-        <Link href="/" className="inline-flex items-center gap-2 text-[14px] text-[#8b8ba7] hover:text-[#111111] dark:text-white mb-12 transition-colors">
-          <Image src="/arrow-left.svg" alt="Back" width={16} height={16} className="w-4 h-4" /> Back to Home
+        <Link href="/" className="inline-flex items-center gap-2 text-[14px] text-[#8b8ba7] dark:text-[#666666] hover:text-[#111111] dark:hover:text-white mb-12 transition-colors group">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4">
+            <path d="M17.9998 12V14.67C17.9998 17.98 15.6498 19.34 12.7798 17.68L10.4698 16.34L8.15982 15C5.28982 13.34 5.28982 10.63 8.15982 8.96999L10.4698 7.62999L12.7798 6.28999C15.6498 4.65999 17.9998 6.00999 17.9998 9.32999V12Z" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Back to Home
         </Link>
         
         <header className="mb-16">
@@ -31,7 +34,7 @@ export default function OurStoryPage() {
           </div>
         </header>
 
-        <div className="text-[#444444] font-medium text-[16px] leading-[1.8] space-y-6">
+        <div className="text-[#444444] dark:text-white font-medium text-[16px] leading-[1.8] space-y-6">
           <p>My name is Utibeabasi.</p>
           
           <p>Before ZILL was a platform, before there was a team, before there was a product people could actually use, there was just me, a few products, and a problem I couldn't seem to solve.</p>
@@ -44,7 +47,7 @@ export default function OurStoryPage() {
           
           <p>At the same time, buyers had their own problems. Finding products could be stressful. Getting information often meant sending messages back and forth.</p>
           
-          <blockquote className="border-l-4 border-[#FF3700] pl-6 my-8 italic text-[#666666] dark:text-[#A0A0A0]">
+          <blockquote className="border-l-4 border-[#FF3700] pl-6 my-8 italic text-[#666666] dark:text-white">
             <p className="mb-2">&quot;Do you have this?&quot;</p>
             <p className="mb-2">&quot;How much is it?&quot;</p>
             <p className="mb-2">&quot;Is it still available?&quot;</p>

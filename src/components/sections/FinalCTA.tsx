@@ -5,7 +5,7 @@ import { WaitlistForm } from "@/components/ui/WaitlistForm";
 
 export function FinalCTA() {
   return (
-    <section className="section-padding bg-white dark:bg-[#111111]">
+    <section className="section-padding bg-white dark:bg-[#000000] transition-colors duration-500 ease-in-out">
       <div className="max-container">
         <ScrollReveal>
           <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-6">

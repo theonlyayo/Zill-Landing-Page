@@ -3,12 +3,10 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-white dark:bg-[#111111] py-16 px-6 md:px-12 border-t border-[#EAEAEA] dark:border-[#333333]">
+    <footer className="bg-white dark:bg-[#000000] py-16 px-6 md:px-12 border-t border-[#EAEAEA] dark:border-[#333333]">
       <div className="max-container w-full flex flex-col gap-16">
         
-        {/* Top: Logo & Links */}
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-24">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="inline-block">
               <Image
@@ -21,9 +19,7 @@ export function Footer() {
             </Link>
           </div>
 
-          {/* Links */}
           <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 max-w-2xl lg:ml-auto">
-            {/* Column 1 */}
             <div className="flex flex-col gap-4">
               <h4 className="text-[13px] font-semibold text-brand-dark dark:text-white uppercase tracking-wider mb-2">Platform</h4>
               <Link href="/#our-story" className="text-[14px] text-[#666666] dark:text-[#A0A0A0] hover:text-[#FF3700] transition-colors">Our Story</Link>
@@ -33,7 +29,6 @@ export function Footer() {
               <Link href="/#faq" className="text-[14px] text-[#666666] dark:text-[#A0A0A0] hover:text-[#FF3700] transition-colors">FAQ</Link>
             </div>
 
-            {/* Column 2 */}
             <div className="flex flex-col gap-4">
               <h4 className="text-[13px] font-semibold text-brand-dark dark:text-white uppercase tracking-wider mb-2">Support</h4>
               <Link href="/#faq" className="text-[14px] text-[#666666] dark:text-[#A0A0A0] hover:text-[#FF3700] transition-colors">Help Center</Link>
@@ -41,7 +36,6 @@ export function Footer() {
               <a href="mailto:zealtozill.info@gmail.com" className="text-[14px] text-[#666666] dark:text-[#A0A0A0] hover:text-[#FF3700] transition-colors">Report an Issue</a>
             </div>
 
-            {/* Column 3 */}
             <div className="flex flex-col gap-4">
               <h4 className="text-[13px] font-semibold text-brand-dark dark:text-white uppercase tracking-wider mb-2">Legal</h4>
               <Link href="/privacy" className="text-[14px] text-[#666666] dark:text-[#A0A0A0] hover:text-[#FF3700] transition-colors">Privacy Policy</Link>
@@ -50,21 +44,17 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Banner */}
         <div className="w-full bg-[#FF3700] rounded-full py-3 px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-[14px] font-medium text-white/90 text-center md:text-left">
             © {new Date().getFullYear()} Zill. All Rights Reserved.
           </div>
           
-          {/* Social Icons */}
           <div className="flex items-center gap-3">
-            {/* Twitter/X */}
             <a href="https://x.com/zealtozill" aria-label="Zill on Twitter" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
-            {/* Instagram */}
             <a href="https://www.instagram.com/zealtozill?utm_source=qr&igsh=aHR0Zmd4dzF4c3Vv&igsi=aHR0Zmd4dzF4c3Vv" aria-label="Zill on Instagram" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -72,7 +62,6 @@ export function Footer() {
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </a>
-            {/* Email */}
             <a href="mailto:zealtozill.info@gmail.com" aria-label="Email Zill" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="4" width="20" height="16" rx="2"></rect>

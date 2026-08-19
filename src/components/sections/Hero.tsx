@@ -70,13 +70,12 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="section-padding min-h-[100svh] flex items-center pt-24 md:pt-32 pb-16 relative z-0"
+      className="section-padding min-h-[100svh] flex items-center pt-24 md:pt-32 pb-16 relative z-0 bg-white dark:bg-[#000000] transition-colors duration-500 ease-in-out"
     >
       <div className="max-container w-full translate-y-[-6px]">
         <div className="flex flex-col items-center text-center gap-12 lg:gap-16">
-          {/* Copy side */}
           <div className="flex flex-col items-center gap-6 max-w-3xl mx-auto">
-            <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-[666px] bg-white dark:bg-[#111111] border border-[#E5E5E5] dark:border-[#333333] text-xs font-medium text-brand-dark dark:text-white w-fit mx-auto">
+            <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-[666px] bg-white dark:bg-[#000000] border border-[#E5E5E5] dark:border-[#333333] text-xs font-medium text-brand-dark dark:text-white w-fit mx-auto transition-colors duration-500 ease-in-out">
               <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
               Coming to Mountain Top University
             </div>
@@ -104,9 +103,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Dashboard screenshot */}
           <div ref={imageRef} className="w-full lg:w-[60%] max-w-4xl relative mx-auto mt-4">
-            <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(17,17,17,0.1)] border border-brand-dark/10 dark:border-white/10 bg-white dark:bg-[#111111] animate-[float_6s_ease-in-out_infinite]">
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(17,17,17,0.1)] border border-brand-dark/10 dark:border-white/10 bg-white dark:bg-[#000000] animate-[float_6s_ease-in-out_infinite] transition-colors duration-500 ease-in-out">
               <Image
                 src="/dashboard.png"
                 alt="Zill seller dashboard showing ₦218,400 monthly revenue, pending offers from buyers, and store health metrics"

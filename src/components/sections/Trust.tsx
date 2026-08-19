@@ -107,9 +107,8 @@ function TrustCard({ pillar }: { pillar: typeof pillars[0] }) {
       ref={ref}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative bg-white dark:bg-[#111111] rounded-[2rem] p-8 md:p-10 border border-[#EAEAEA] dark:border-[#333333] shadow-[0_10px_40px_rgba(0,0,0,0.03)] flex flex-col overflow-hidden"
+      className="relative bg-white dark:bg-[#111111] rounded-[2rem] p-8 md:p-10 border border-[#EAEAEA] dark:border-transparent shadow-[0_10px_40px_rgba(0,0,0,0.03)] flex flex-col overflow-hidden transition-colors duration-500 ease-in-out"
     >
-      {/* Soft orange bloom aura behind the icon on hover */}
       <motion.div 
         className="absolute top-8 left-8 w-32 h-32 bg-[#FF3700] rounded-full mix-blend-multiply filter blur-[50px] pointer-events-none"
         initial={{ opacity: 0, scale: 0.5 }}
@@ -120,12 +119,10 @@ function TrustCard({ pillar }: { pillar: typeof pillars[0] }) {
         transition={{ duration: 0.6, ease: "easeOut" }}
       />
 
-      {/* Icon Wrapper */}
-      <div className="w-16 h-16 rounded-2xl bg-[#F7F7F7] flex items-center justify-center text-[#FF3700] mb-8 relative z-10 border border-[#EAEAEA] dark:border-[#333333]">
+      <div className="w-16 h-16 rounded-2xl bg-[#F7F7F7] dark:bg-[#222222] flex items-center justify-center text-[#FF3700] mb-8 relative z-10 border border-[#EAEAEA] dark:border-transparent">
         {pillar.icon(isActive)}
       </div>
       
-      {/* Content */}
       <h3 className="text-xl md:text-[22px] font-bold text-brand-dark dark:text-white mb-4 tracking-tight relative z-10">
         {pillar.title}
       </h3>
@@ -138,10 +135,9 @@ function TrustCard({ pillar }: { pillar: typeof pillars[0] }) {
 
 export function Trust() {
   return (
-    <section className="py-24 md:py-32 bg-white dark:bg-[#111111] relative z-10">
+    <section className="py-24 md:py-32 bg-white dark:bg-[#000000] relative z-10 transition-colors duration-500 ease-in-out">
       <div className="max-container w-full">
         
-        {/* Heading Section */}
         <ScrollReveal>
           <div className="mb-16 md:mb-20">
             <span className="text-[13px] font-medium text-[#666666] dark:text-[#A0A0A0] mb-4 block">
@@ -154,7 +150,6 @@ export function Trust() {
           </div>
         </ScrollReveal>
 
-        {/* 3-Card Grid */}
         <ScrollReveal stagger={0.1}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {pillars.map((pillar) => (
