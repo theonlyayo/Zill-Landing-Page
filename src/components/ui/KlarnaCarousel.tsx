@@ -54,44 +54,52 @@ export const mkItem = ([src, label]: [string, string]): CarouselItem => ({
 const DEFAULT_ITEMS: CarouselItem[] = (
     [
         [
-            "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/8fd4d2a3-a363-4658-d6ee-84790bc8f300/w=800",
-            "Sophia Benett",
+            "/team/UTIBE.jpg",
+            "Divine",
         ],
         [
-            "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/4d1fe81d-5289-4e08-b381-03e4e9efed00/w=800",
-            "Isabella Foster",
+            "https://ui-avatars.com/api/?name=Steven&background=F5F5F5&color=000&size=800",
+            "Steven",
         ],
         [
-            "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/6ab26fe4-5016-4c65-01e8-b3a71ea08200/w=800",
-            "Grace Turner",
+            "/team/Ayo.png",
+            "Ayomide",
         ],
         [
-            "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/4b1ec233-9a09-4483-1adb-404a93094100/w=800",
-            "Olivia Parker",
+            "https://ui-avatars.com/api/?name=Patrick&background=F5F5F5&color=000&size=800",
+            "Patrick",
         ],
         [
-            "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/20fd03c3-49d6-408c-3ac9-8c5a6ed2b500/w=800",
-            "Lucas Turner",
+            "/team/Oyinda.jpeg",
+            "Oyinda",
         ],
         [
-            "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/c84f3e45-635f-4eaa-4e24-730098b55500/w=800",
-            "Emma Collins",
+            "https://ui-avatars.com/api/?name=Ini&background=F5F5F5&color=000&size=800",
+            "Ini",
         ],
         [
-            "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/3b42034b-897e-456d-cb00-1f2cf0aa4700/w=800",
-            "Mia Carter",
+            "/team/Funsho.jpeg",
+            "Funsho",
         ],
         [
-            "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/9652cf81-4644-4471-1122-4e40ef6e2600/w=800",
-            "Ella Morgan",
+            "https://ui-avatars.com/api/?name=Precious&background=F5F5F5&color=000&size=800",
+            "Precious",
         ],
         [
-            "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/f8b3688c-11d0-425c-0b6f-66f133322c00/w=800",
-            "Marcus Reed",
+            "/team/Ore.jpeg",
+            "Oreoluwa",
         ],
         [
-            "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/c083d83a-f5a4-4434-989f-4eaa9bbe7500/w=800",
-            "Julia Chen",
+            "/team/Tolu.jpeg",
+            "Tolu",
+        ],
+        [
+            "/team/Seyi.jpeg",
+            "Seyi",
+        ],
+        [
+            "https://ui-avatars.com/api/?name=Elizabeth&background=F5F5F5&color=000&size=800",
+            "Elizabeth",
         ],
     ] as [string, string][]
 ).map(mkItem);
