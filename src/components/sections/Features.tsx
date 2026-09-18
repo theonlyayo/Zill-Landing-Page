@@ -11,7 +11,7 @@ const items = [
     description: "Send an offer on any listing instead of paying sticker price. Sellers accept, counter, or decline. It's campus haggling, made clean, fair, and trackable.",
     image: "/bento/how-much-last.png",
     colSpan: "md:col-span-2",
-    imageScale: "scale-[1.32]",
+    imageScale: "scale-[1.056] md:scale-[1.32]",
     imageContainerClass: "aspect-[2/1] md:aspect-[3/1]",
     rotate: -3,
   },
@@ -69,11 +69,11 @@ const TiltCard = ({ item, index }: { item: typeof items[0], index: number }) => 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15, mass: 0.5 });
-  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 15, mass: 0.5 });
+  const mouseXSpring = useSpring(x, { stiffness: 120, damping: 20, mass: 0.5 });
+  const mouseYSpring = useSpring(y, { stiffness: 120, damping: 20, mass: 0.5 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["3.5deg", "-3.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-3.5deg", "3.5deg"]);
 
   const [isHovered, setIsHovered] = useState(false);
   const isActive = isMobile ? isInView : isHovered;
@@ -109,12 +109,12 @@ const TiltCard = ({ item, index }: { item: typeof items[0], index: number }) => 
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      className={`${item.colSpan} bento-card-new bg-white dark:bg-[#111111] rounded-[32px] p-6 md:p-8 flex flex-col items-start justify-between shadow-[0_8px_40px_rgb(0,0,0,0.03)] dark:border-transparent group cursor-pointer transition-shadow duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]`}
+      className={`${item.colSpan} bento-card-new bg-white dark:bg-[#111111] rounded-[32px] p-6 md:p-8 flex flex-col items-start justify-between shadow-[0_8px_40px_rgb(0,0,0,0.03)] dark:border-transparent group cursor-pointer transition-shadow duration-700 ease-out hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]`}
     >
       <div className={`w-full relative ${item.imageContainerClass} mb-10 flex items-center justify-center`} style={{ transformStyle: "preserve-3d" }}>
         <motion.div
-          animate={isActive ? { scale: 1.1, rotateZ: item.rotate, z: 40 } : { scale: 1, rotateZ: 0, z: 0 }}
-          transition={{ type: "spring", stiffness: 300, damping: 12, mass: 0.8 }}
+          animate={isActive ? { scale: 1.06, rotateZ: item.rotate, z: 20 } : { scale: 1, rotateZ: 0, z: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 22, mass: 0.6 }}
           className="w-full h-full relative flex items-center justify-center"
           style={{ transformStyle: "preserve-3d" }}
         >
@@ -163,17 +163,20 @@ export function Features() {
 
       const cards = gsap.utils.toArray<HTMLElement>(".bento-card-new");
       
+      gsap.set(cards, { willChange: "transform, opacity" });
       gsap.from(cards, {
         opacity: 0,
-        y: 80,
-        scale: 0.9,
-        duration: 1.2,
-        stagger: 0.1,
-        ease: "elastic.out(1, 0.7)",
+        y: 40,
+        duration: 0.8,
+        stagger: 0.12,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: gridRef.current,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
+          start: "top 82%",
+          once: true,
+        },
+        onComplete: () => {
+          gsap.set(cards, { willChange: "auto" });
         },
       });
     },

@@ -16,7 +16,7 @@ export function Team() {
     <section className="py-24 md:py-32 bg-white dark:bg-[#000000] relative z-10 transition-colors duration-500 ease-in-out">
       <div className="max-container w-full">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          
+
           <div className="flex-1 w-full max-w-xl flex flex-col items-start">
             <ScrollReveal>
               <span className="text-[13px] font-medium text-[#666666] dark:text-[#A0A0A0] mb-4 block">
@@ -32,7 +32,7 @@ export function Team() {
                 We&apos;re a small team of Mountain Top University students who got
                 tired of the same broken buying and selling experience on campus.
                 So we built the solution ourselves. Zill isn&apos;t a project from
-                some outside company — it&apos;s built by the people who actually
+                some outside company. It&apos;s built by the people who actually
                 use it, on the campus where it runs.
               </p>
             </ScrollReveal>

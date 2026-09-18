@@ -66,7 +66,7 @@ const DEFAULT_ITEMS: CarouselItem[] = (
             "Ayomide",
         ],
         [
-            "https://ui-avatars.com/api/?name=Patrick&background=F5F5F5&color=000&size=800",
+            "/team/Patrick.jpeg",
             "Patrick",
         ],
         [
@@ -74,7 +74,7 @@ const DEFAULT_ITEMS: CarouselItem[] = (
             "Oyinda",
         ],
         [
-            "https://ui-avatars.com/api/?name=Ini&background=F5F5F5&color=000&size=800",
+            "/team/Ini.png",
             "Ini",
         ],
         [
@@ -82,7 +82,7 @@ const DEFAULT_ITEMS: CarouselItem[] = (
             "Funsho",
         ],
         [
-            "https://ui-avatars.com/api/?name=Precious&background=F5F5F5&color=000&size=800",
+            "/team/Precious.jpeg",
             "Precious",
         ],
         [
@@ -98,7 +98,7 @@ const DEFAULT_ITEMS: CarouselItem[] = (
             "Seyi",
         ],
         [
-            "https://ui-avatars.com/api/?name=Elizabeth&background=F5F5F5&color=000&size=800",
+            "/team/Elizabeth.jpeg",
             "Elizabeth",
         ],
     ] as [string, string][]
@@ -205,6 +205,18 @@ export function KlarnaCarousel(props: KlarnaCarouselProps) {
         [M]
     );
 
+    const [isPaused, setIsPaused] = useState(false);
+
+    useEffect(() => {
+        if (isPaused) return;
+        const interval = setInterval(() => {
+            const currentActive = modIdx(Math.round(posRef.current), M);
+            const next = modIdx(currentActive + 1, M);
+            select(next);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, [isPaused, M, select]);
+
     useEffect(() => {
         return () => {
             if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -270,6 +282,10 @@ export function KlarnaCarousel(props: KlarnaCarouselProps) {
 
     return (
         <div
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
             style={{
                 position: "relative",
                 width: "100%",

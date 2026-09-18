@@ -28,8 +28,8 @@ const members = [
   {
     name: "Patrick",
     role: "Full-Stack Developer",
-    image: "https://ui-avatars.com/api/?name=Patrick&background=F5F5F5&color=000&size=800",
-    hoverImage: "https://ui-avatars.com/api/?name=Patrick&background=FF3700&color=fff&size=800",
+    image: "/team/Patrick.jpeg",
+    hoverImage: "/team/Patrick.jpeg",
   },
   {
     name: "Oyinda",
@@ -40,8 +40,8 @@ const members = [
   {
     name: "Ini",
     role: "Product Research Analyst",
-    image: "https://ui-avatars.com/api/?name=Ini&background=F5F5F5&color=000&size=800",
-    hoverImage: "https://ui-avatars.com/api/?name=Ini&background=FF3700&color=fff&size=800",
+    image: "/team/Ini.png",
+    hoverImage: "/team/Ini.png",
   },
   {
     name: "Funsho",
@@ -52,8 +52,8 @@ const members = [
   {
     name: "Precious",
     role: "Business Analyst & Strategy",
-    image: "https://ui-avatars.com/api/?name=Precious&background=F5F5F5&color=000&size=800",
-    hoverImage: "https://ui-avatars.com/api/?name=Precious&background=FF3700&color=fff&size=800",
+    image: "/team/Precious.jpeg",
+    hoverImage: "/team/Precious.jpeg",
   },
   {
     name: "Oreoluwa",
@@ -76,8 +76,8 @@ const members = [
   {
     name: "Elizabeth",
     role: "Finance & Investment Analyst",
-    image: "https://ui-avatars.com/api/?name=Elizabeth&background=F5F5F5&color=000&size=800",
-    hoverImage: "https://ui-avatars.com/api/?name=Elizabeth&background=FF3700&color=fff&size=800",
+    image: "/team/Elizabeth.jpeg",
+    hoverImage: "/team/Elizabeth.jpeg",
   }
 ];
 
@@ -111,7 +111,7 @@ export function CampusYearbook() {
               </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
             {members.map((member, i) => (
               <MemberCard key={i} member={member} index={i} />
             ))}
