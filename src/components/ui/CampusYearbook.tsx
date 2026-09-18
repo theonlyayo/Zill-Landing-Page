@@ -40,8 +40,8 @@ const members = [
   {
     name: "Ini",
     role: "Product Research Analyst",
-    image: "/team/Ini.png",
-    hoverImage: "/team/Ini.png",
+    image: "/team/Ini.jpeg",
+    hoverImage: "/team/Ini.jpeg",
   },
   {
     name: "Funsho",

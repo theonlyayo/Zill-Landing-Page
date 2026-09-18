@@ -14,7 +14,7 @@ const DEFAULT_IMAGES = [
     "/team/Elizabeth.jpeg",
     "/team/Patrick.jpeg",
     "/team/Precious.jpeg",
-    "/team/Ini.png",
+    "/team/Ini.jpeg",
 ];
 
 const DEFAULTS = {

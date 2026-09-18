@@ -74,7 +74,7 @@ const DEFAULT_ITEMS: CarouselItem[] = (
             "Oyinda",
         ],
         [
-            "/team/Ini.png",
+            "/team/Ini.jpeg",
             "Ini",
         ],
         [
