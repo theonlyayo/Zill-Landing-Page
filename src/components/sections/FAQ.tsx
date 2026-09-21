@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 const faqs = [
   {
     question: "What is Zill?",
-    answer: "Zill is e-commerce infrastructure that connects buyers with trusted sellers, making it easier to discover, buy, and sell products."
+    answer: "Zill is the campus marketplace for verified students to buy, sell, and negotiate. With every transaction building a real financial history you can actually use after graduation."
   },
   {
     question: "Who can use Zill?",

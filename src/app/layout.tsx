@@ -29,6 +29,12 @@ export const metadata: Metadata = {
       "The marketplace where students buy, sell, negotiate prices, and build a real financial history.",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zill — Your Campus Marketplace",
+    description:
+      "The marketplace where students buy, sell, negotiate prices, and build a real financial history.",
+  },
 };
 
 export default function RootLayout({

@@ -109,8 +109,8 @@ export function OurStory() {
                 <div className="text-[11px] text-[#666666]">Median listing time</div>
               </div>
               <div>
-                <div className="text-[13px] font-medium text-brand-dark dark:text-white mb-1">5+</div>
-                <div className="text-[11px] text-[#666666]">Campus features</div>
+                <div className="text-[13px] font-medium text-brand-dark dark:text-white mb-1">100+</div>
+                <div className="text-[11px] text-[#666666]">Students on the waitlist</div>
               </div>
             </div>
           </div>

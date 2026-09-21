@@ -228,7 +228,7 @@ export function CreditTrail() {
                 
                 <div className="flex-1">
                   <p className="text-white/90 text-lg md:text-[21px] font-medium leading-relaxed mb-8">
-                    I&apos;ve been selling hoodies on campus since year one, and honestly, Zill just made it official. Knowing I&apos;m graduating with a clean, verifiable record of all my sales and my own <span className="text-white font-bold">.store</span> domain? It&apos;s wild. No bank is going to ask me if I really have business experience. They&apos;ll just see the proof.
+                    I&apos;ve been selling hoodies on campus since year one, all through group chats and DMs. The second I heard Zill has a spot for me with my own online storefront and a credibility score that&apos;s actually mine? I&apos;m signing up day one. No more chasing screenshots to prove I run a real business.
                   </p>
                   
                   <Magnetic className="inline-block">
@@ -243,7 +243,7 @@ export function CreditTrail() {
                       </div>
                       <div className="flex flex-col justify-center">
                         <h4 className="text-white font-bold text-[13px] leading-tight mb-0.5">Precious</h4>
-                        <p className="text-white/90 text-[11px] leading-tight">Business Owner</p>
+                        <p className="text-white/90 text-[11px] leading-tight">Student Business Owner</p>
                       </div>
                     </motion.div>
                   </Magnetic>
