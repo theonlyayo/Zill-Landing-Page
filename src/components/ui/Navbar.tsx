@@ -24,7 +24,8 @@ export function Navbar({ forceShow = false }: { forceShow?: boolean }) {
     }
   }, [isMobileMenuOpen]);
 
-  if (pathname === "/team" && !forceShow) {
+  const hiddenRoutes = ["/team", "/team/waitlist", "/login", "/change-password"];
+  if (hiddenRoutes.includes(pathname) && !forceShow) {
     return null;
   }
 
