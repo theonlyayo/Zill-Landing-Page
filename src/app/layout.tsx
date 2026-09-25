@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Zill — Your Campus Marketplace",
+  title: "Zill: Your Campus Marketplace",
   description:
     "The marketplace where students buy, sell, negotiate prices, and build a real financial history.",
   keywords: [
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     "Nigeria",
   ],
   openGraph: {
-    title: "Zill — Your Campus Marketplace",
+    title: "Zill: Your Campus Marketplace",
     description:
       "The marketplace where students buy, sell, negotiate prices, and build a real financial history.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zill — Your Campus Marketplace",
+    title: "Zill: Your Campus Marketplace",
     description:
       "The marketplace where students buy, sell, negotiate prices, and build a real financial history.",
   },
