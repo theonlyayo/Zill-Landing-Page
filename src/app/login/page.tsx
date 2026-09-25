@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, FormEvent } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { FeedbackPill, FeedbackState } from "@/components/admin/FeedbackPill";
+import { MobileAdminBlocker } from "@/components/admin/MobileAdminBlocker";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 function isValidEmail(val: string) {
@@ -110,7 +111,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center py-20 px-4 overflow-x-hidden bg-black font-archivo">
+    <>
+      <MobileAdminBlocker />
+      <div className="hidden lg:flex relative min-h-screen items-center justify-center py-20 px-4 overflow-x-hidden bg-black font-archivo">
       {/* Background Video */}
       <video
         autoPlay
@@ -217,5 +220,6 @@ export default function LoginPage() {
         <FeedbackPill feedback={feedback} />
       </div>
     </div>
+    </>
   );
 }

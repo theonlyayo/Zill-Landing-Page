@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import * as XLSX from "xlsx";
+import { MobileAdminBlocker } from "@/components/admin/MobileAdminBlocker";
 
 interface Signup {
   id: string;
@@ -150,7 +151,9 @@ export function WaitlistDashboard({
   }, [page, totalPages]);
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] font-archivo transition-colors duration-500 overflow-x-hidden">
+    <>
+      <MobileAdminBlocker />
+      <div className="hidden lg:block min-h-screen bg-[#0A0A0A] font-archivo transition-colors duration-500 overflow-x-hidden">
       <div className="w-full max-w-[1152px] mx-auto px-6 py-16 flex flex-col gap-16">
         
         {/* Top Header */}
@@ -343,5 +346,6 @@ export function WaitlistDashboard({
         )}
       </div>
     </div>
+    </>
   );
 }

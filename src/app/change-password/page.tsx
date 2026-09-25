@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, FormEvent } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { FeedbackPill, FeedbackState } from "@/components/admin/FeedbackPill";
+import { MobileAdminBlocker } from "@/components/admin/MobileAdminBlocker";
 
 export default function ChangePasswordPage() {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -162,7 +163,9 @@ export default function ChangePasswordPage() {
   }
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center py-20 px-4 overflow-x-hidden bg-black font-archivo">
+    <>
+      <MobileAdminBlocker />
+      <div className="hidden lg:flex relative min-h-screen items-center justify-center py-20 px-4 overflow-x-hidden bg-black font-archivo">
       {/* Background Video */}
       <video
         autoPlay
@@ -293,5 +296,6 @@ export default function ChangePasswordPage() {
         <FeedbackPill feedback={feedback} />
       </div>
     </div>
+    </>
   );
 }
