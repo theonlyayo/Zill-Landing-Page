@@ -58,8 +58,8 @@ const DEFAULT_ITEMS: CarouselItem[] = (
             "Divine",
         ],
         [
-            "https://ui-avatars.com/api/?name=Steven&background=F5F5F5&color=000&size=800",
-            "Steven",
+            "/team/Stephen.jpeg",
+            "Stephen",
         ],
         [
             "/team/Ayo.png",

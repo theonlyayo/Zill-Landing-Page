@@ -14,10 +14,10 @@ const members = [
     hoverImage: "/team/UTIBE.jpg",
   },
   {
-    name: "Steven",
+    name: "Stephen",
     role: "Tech Officer & Product Lead",
-    image: "https://ui-avatars.com/api/?name=Steven&background=F5F5F5&color=000&size=800",
-    hoverImage: "https://ui-avatars.com/api/?name=Steven&background=FF3700&color=fff&size=800",
+    image: "/team/Stephen.jpeg",
+    hoverImage: "/team/Stephen.jpeg",
   },
   {
     name: "Ayomide",

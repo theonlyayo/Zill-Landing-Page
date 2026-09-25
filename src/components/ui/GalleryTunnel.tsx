@@ -5,6 +5,7 @@ import * as THREE from "three";
 
 const DEFAULT_IMAGES = [
     "/team/UTIBE.jpg",
+    "/team/Stephen.jpeg",
     "/team/Ayo.png",
     "/team/Oyinda.jpeg",
     "/team/Funsho.jpeg",
