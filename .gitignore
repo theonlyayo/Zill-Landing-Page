@@ -16,22 +16,32 @@
 # next.js
 /.next/
 /out/
+.turbo
 
 # production
 /build
 
 # misc
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.pem
+
+# editor
+.vscode/
+.idea/
+*.swp
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
 
-# env files (can opt-in for committing if needed)
+# env files
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -43,4 +53,3 @@ next-env.d.ts
 # agent files
 AGENTS.md
 CLAUDE.md
-
