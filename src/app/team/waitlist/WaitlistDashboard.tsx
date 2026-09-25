@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import Link from "next/link";
 import * as XLSX from "xlsx";
 
 interface Signup {
@@ -46,11 +46,7 @@ export function WaitlistDashboard({
   const totalPages = Math.max(1, Math.ceil(count / pageSize));
 
   const fetchData = useCallback(
-    async (
-      currentPage: number,
-      query: string,
-      ascending: boolean
-    ) => {
+    async (currentPage: number, query: string, ascending: boolean) => {
       setLoading(true);
       const from = currentPage * pageSize;
       const to = from + pageSize - 1;
@@ -64,10 +60,7 @@ export function WaitlistDashboard({
         builder = builder.ilike("email", `%${query.trim()}%`);
       }
 
-      const { data: result, count: resultCount } = await builder.range(
-        from,
-        to
-      );
+      const { data: result, count: resultCount } = await builder.range(from, to);
 
       setData(result ?? []);
       setCount(resultCount ?? 0);
@@ -85,7 +78,7 @@ export function WaitlistDashboard({
     return () => clearTimeout(timer);
   }, [search, sortAsc, fetchData]);
 
-  // Page changes (not triggered by search debounce)
+  // Page changes
   useEffect(() => {
     if (page > 0 || data !== initialData) {
       fetchData(page, search, sortAsc);
@@ -100,7 +93,6 @@ export function WaitlistDashboard({
   const handleExport = async () => {
     setExporting(true);
 
-    // Fetch ALL data (respecting current search filter) for export
     let allData: { email: string; created_at: string }[] = [];
     let offset = 0;
     const batchSize = 1000;
@@ -123,15 +115,12 @@ export function WaitlistDashboard({
       offset += batchSize;
     }
 
-    // Build spreadsheet
     const rows = allData.map((row) => ({
       Email: row.email,
       Joined: formatDate(row.created_at),
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(rows);
-
-    // Set column widths
     worksheet["!cols"] = [{ wch: 35 }, { wch: 18 }];
 
     const workbook = XLSX.utils.book_new();
@@ -149,7 +138,6 @@ export function WaitlistDashboard({
     router.refresh();
   };
 
-  // Pagination range — show up to 5 page buttons
   const paginationRange = useMemo(() => {
     const range: number[] = [];
     let start = Math.max(0, page - 2);
@@ -162,196 +150,148 @@ export function WaitlistDashboard({
   }, [page, totalPages]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#000000] transition-colors duration-500">
-      {/* Top bar */}
-      <header className="sticky top-0 z-40 bg-white/80 dark:bg-[#000000]/80 backdrop-blur-md border-b border-black/5 dark:border-white/10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-bold text-brand-dark dark:text-white tracking-tight">
-              Zill
-            </span>
-            <span className="text-brand-gray dark:text-[#555555] text-xs select-none">
-              /
-            </span>
-            <span className="text-sm text-brand-gray dark:text-[#888888]">
-              Team
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
-            <button
-              onClick={handleLogout}
-              className="text-xs text-brand-gray dark:text-[#888888] hover:text-brand-dark dark:hover:text-white transition-colors cursor-pointer"
-            >
-              Sign out
-            </button>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-[#0A0A0A] font-archivo transition-colors duration-500 overflow-x-hidden">
+      <div className="w-full max-w-[1152px] mx-auto px-6 py-16 flex flex-col gap-16">
+        
+        {/* Top Header */}
+        <div className="flex flex-col gap-12">
+          {/* Action Row */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            {/* Back to landing page */}
+            <Link href="/" className="flex items-center gap-2 group cursor-pointer">
+               <img src="/admin/box-arrow-left.svg" alt="Back" className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity" />
+               <span className="text-[#777777] text-xs font-medium font-sans group-hover:text-white transition-colors tracking-wide uppercase">Back to Landing Page</span>
+            </Link>
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-          <div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-brand-dark dark:text-white tracking-tight">
-              Waitlist
-            </h1>
-            <p className="text-brand-gray dark:text-[#888888] text-sm mt-1">
-              {count.toLocaleString()} signup{count !== 1 ? "s" : ""}
-            </p>
+            {/* Buttons */}
+            <div className="flex items-center gap-4">
+               <button onClick={handleExport} disabled={exporting || count === 0} className="w-28 h-8 px-3.5 py-2 bg-[#FF3700] hover:bg-[#e63200] transition-colors rounded-lg flex justify-center items-center gap-1 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                  <img src="/admin/download-03.svg" className="w-4 h-4" />
+                  <span className="text-white text-xs font-medium leading-3">{exporting ? 'Exporting...' : 'Download'}</span>
+               </button>
+               <button onClick={handleLogout} className="w-28 h-8 px-3.5 py-2 bg-[#191919] hover:bg-[#2A2A2A] transition-colors rounded-lg flex justify-center items-center gap-1 cursor-pointer">
+                  <img src="/admin/logout-02.svg" className="w-4 h-4" />
+                  <span className="text-[#777777] text-xs font-medium leading-3">Sign Out</span>
+               </button>
+            </div>
           </div>
-          <button
-            onClick={handleExport}
-            disabled={exporting || count === 0}
-            className="inline-flex items-center gap-2 h-10 px-5 rounded-[666px] bg-brand text-white text-sm font-medium cursor-pointer transition-all duration-200 hover:opacity-90 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="shrink-0"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            {exporting ? "Exporting…" : "Export"}
-          </button>
-        </div>
 
-        {/* Search */}
-        <div className="mb-6">
-          <div className="relative max-w-md">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-gray dark:text-[#555555] pointer-events-none"
+          {/* Title and Search */}
+          <div className="flex justify-between items-end sm:items-center flex-col sm:flex-row gap-6">
+            <div className="flex flex-col gap-2">
+               <h1 className="text-[#FF3700] text-3xl font-extrabold leading-8">Waitlist</h1>
+               <div className="text-[#777777] text-base font-medium leading-4">{count.toLocaleString()} Signup{count !== 1 ? 's' : ''}</div>
+            </div>
+
+            <div 
+              style={{ outline: "none", boxShadow: "none", border: "none" }}
+              className="w-full max-w-[360px] pl-4 pr-4 py-3 bg-[#191919] rounded-[71px] flex items-center gap-2 outline-none border-none focus:outline-none focus:border-none focus:ring-0 focus-within:outline-none focus-within:border-none focus-within:ring-0 shadow-none focus-within:shadow-none"
             >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search by email…"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full h-10 pl-10 pr-4 rounded-xl bg-brand-light dark:bg-[#111111] border border-transparent focus:border-black/10 dark:focus:border-white/10 text-sm text-brand-dark dark:text-white placeholder:text-brand-gray dark:placeholder:text-[#555555] outline-none transition-all"
-            />
-            {search && (
-              <button
-                onClick={() => setSearch("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-gray dark:text-[#555555] hover:text-brand-dark dark:hover:text-white transition-colors cursor-pointer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+               <img src="/admin/search.svg" className="w-5 h-5 opacity-70" />
+               <input 
+                  type="text" 
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search by Email..." 
+                  autoComplete="off"
+                  spellCheck={false}
+                  style={{ outline: "none", boxShadow: "none", border: "none" }}
+                  className="bg-transparent border-none outline-none text-[#777777] text-base font-normal w-full focus:text-white focus:outline-none focus:ring-0 focus:border-none focus-visible:outline-none focus-visible:ring-0 shadow-none focus:shadow-none"
+               />
+               {search && (
+                <button
+                  onClick={() => setSearch("")}
+                  className="text-[#777777] hover:text-white transition-colors cursor-pointer mr-2"
                 >
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
-              </button>
-            )}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                  </svg>
+                </button>
+               )}
+            </div>
           </div>
         </div>
 
-        {/* Table */}
-        <div className="bg-brand-light dark:bg-[#111111] rounded-2xl overflow-hidden shadow-sm">
-          {/* Table header */}
-          <div className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_160px] px-4 sm:px-6 py-3 border-b border-black/5 dark:border-white/5">
-            <span className="text-xs font-medium text-brand-gray dark:text-[#888888] uppercase tracking-wider">
-              Email
-            </span>
-            <button
-              onClick={handleSort}
-              className="text-xs font-medium text-brand-gray dark:text-[#888888] uppercase tracking-wider flex items-center gap-1 cursor-pointer hover:text-brand-dark dark:hover:text-white transition-colors text-right sm:text-left"
-            >
-              Joined
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={`transition-transform duration-200 ${
-                  sortAsc ? "rotate-180" : ""
-                }`}
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Rows */}
-          {loading ? (
-            <div className="divide-y divide-black/5 dark:divide-white/5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_160px] px-4 sm:px-6 py-4"
-                >
-                  <div className="h-4 w-48 max-w-full bg-black/5 dark:bg-white/5 rounded animate-pulse" />
-                  <div className="h-4 w-20 bg-black/5 dark:bg-white/5 rounded animate-pulse ml-auto sm:ml-0" />
+        {/* Table Container */}
+        <div className="p-4 sm:p-8 bg-[#191919] rounded-[32px] flex flex-col gap-px w-full overflow-x-auto">
+           <div className="min-w-[500px]">
+             <div className="h-12 px-5 py-4 border-b border-[#2F2F2F] flex items-center">
+                <div className="flex-1 flex flex-col items-start">
+                   <span className="text-[#777777] text-sm font-semibold leading-5 uppercase">Email</span>
                 </div>
-              ))}
-            </div>
-          ) : data.length === 0 ? (
-            <div className="px-6 py-16 text-center">
-              <p className="text-brand-gray dark:text-[#555555] text-sm">
-                {search
-                  ? "No signups match your search."
-                  : "No signups yet."}
-              </p>
-            </div>
-          ) : (
-            <div className="divide-y divide-black/5 dark:divide-white/5">
-              {data.map((signup) => (
-                <div
-                  key={signup.id}
-                  className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_160px] px-4 sm:px-6 py-3.5 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] transition-colors"
-                >
-                  <span className="text-sm text-brand-dark dark:text-white truncate pr-4">
-                    {signup.email}
-                  </span>
-                  <span className="text-sm text-brand-gray dark:text-[#888888] text-right sm:text-left whitespace-nowrap">
-                    {formatDate(signup.created_at)}
-                  </span>
+                <button onClick={handleSort} className="flex items-center gap-0.5 hover:opacity-80 transition-opacity cursor-pointer">
+                   <span className="text-[#777777] text-sm font-semibold leading-5 uppercase">Joined</span>
+                   <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#777777"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={`transition-transform duration-200 ${sortAsc ? "rotate-180" : ""}`}
+                   >
+                      <path d="m6 9 6 6 6-6" />
+                   </svg>
+                </button>
+             </div>
+
+             {/* Rows */}
+             {loading ? (
+                <div className="divide-y divide-[#2F2F2F]">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="h-12 px-5 py-4 flex items-center"
+                    >
+                      <div className="flex-1 h-4 w-48 max-w-full bg-[#2F2F2F] rounded animate-pulse" />
+                      <div className="h-4 w-20 bg-[#2F2F2F] rounded animate-pulse" />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          )}
+             ) : data.length === 0 ? (
+                 <div className="px-6 py-16 text-center">
+                    <p className="text-[#777777] text-sm">
+                      {search ? "No signups match your search." : "No signups yet."}
+                    </p>
+                  </div>
+             ) : (
+                 <div className="divide-y divide-[#2F2F2F]">
+                   {data.map((signup) => (
+                      <div key={signup.id} className="h-12 px-5 py-4 flex items-center hover:bg-[#2a2a2a] transition-colors rounded-md -mx-2 px-7">
+                         <div className="flex-1 flex flex-col items-start">
+                            <span className="text-[#F0F0F0] text-sm font-normal leading-5 truncate pr-4 max-w-[200px] sm:max-w-none">{signup.email}</span>
+                         </div>
+                         <div className="flex flex-col items-start">
+                            <span className="text-[#F0F0F0] text-sm font-normal leading-5 whitespace-nowrap">{formatDate(signup.created_at)}</span>
+                         </div>
+                      </div>
+                   ))}
+                 </div>
+             )}
+           </div>
         </div>
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-1 mt-6">
+          <div className="flex items-center justify-center gap-2 mt-2">
             <button
               onClick={() => setPage((p) => Math.max(0, p - 1))}
               disabled={page === 0}
-              className="h-8 w-8 rounded-lg flex items-center justify-center text-sm text-brand-gray dark:text-[#888888] hover:bg-brand-light dark:hover:bg-[#111111] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
+              className="h-8 w-8 rounded-lg flex items-center justify-center text-sm text-[#777777] hover:bg-[#191919] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -373,8 +313,8 @@ export function WaitlistDashboard({
                 onClick={() => setPage(p)}
                 className={`h-8 w-8 rounded-lg flex items-center justify-center text-sm font-medium cursor-pointer transition-colors ${
                   p === page
-                    ? "bg-brand-dark dark:bg-white text-white dark:text-brand-dark"
-                    : "text-brand-gray dark:text-[#888888] hover:bg-brand-light dark:hover:bg-[#111111]"
+                    ? "bg-[#FF3700] text-white"
+                    : "text-[#777777] hover:bg-[#191919] hover:text-white"
                 }`}
               >
                 {p + 1}
@@ -383,7 +323,7 @@ export function WaitlistDashboard({
             <button
               onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
               disabled={page >= totalPages - 1}
-              className="h-8 w-8 rounded-lg flex items-center justify-center text-sm text-brand-gray dark:text-[#888888] hover:bg-brand-light dark:hover:bg-[#111111] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
+              className="h-8 w-8 rounded-lg flex items-center justify-center text-sm text-[#777777] hover:bg-[#191919] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -401,7 +341,7 @@ export function WaitlistDashboard({
             </button>
           </div>
         )}
-      </main>
+      </div>
     </div>
   );
 }

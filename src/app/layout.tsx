@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
+import { Archivo, Inter } from "next/font/google";
 import { Navbar } from "@/components/ui/Navbar";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Analytics } from "@vercel/analytics/react";
@@ -8,6 +8,11 @@ import "./globals.css";
 const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-archivo",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -43,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${archivo.variable} bg-white dark:bg-[#000000]`} suppressHydrationWarning>
+    <html lang="en" className={`${archivo.variable} ${inter.variable} bg-white dark:bg-[#000000]`} suppressHydrationWarning>
       <body className="antialiased dark:bg-[#000000] dark:text-[#ffffff] transition-colors duration-500 ease-in-out">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem enableColorScheme>
           <Navbar />

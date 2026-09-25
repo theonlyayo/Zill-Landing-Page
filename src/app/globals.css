@@ -35,7 +35,8 @@
   --color-white: #FFFFFF;
 
   --font-sans: "TASA Orbiter Variable", sans-serif;
-  --font-archivo: var(--font-archivo);
+  --font-archivo: var(--font-archivo), "Archivo", sans-serif;
+  --font-inter: var(--font-inter), "Inter", sans-serif;
 }
 
 html {
@@ -100,5 +101,14 @@ h6 {
 
   .max-container {
     @apply w-full max-w-full px-6 lg:px-[148px] mx-auto;
+  }
+
+  .squircle {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath d='M 820 0 C 904.85 0 947.28 0 973.64 26.36 C 1000 52.72 1000 95.15 1000 180 L 1000 820 C 1000 904.85 1000 947.28 973.64 973.64 C 947.28 1000 904.85 1000 820 1000 L 180 1000 C 95.15 1000 52.72 1000 26.36 973.64 C 0 947.28 0 904.85 0 820 L 0 180 C 0 95.15 0 52.72 26.36 26.36 C 52.72 0 95.15 0 180 0 Z' fill='white'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath d='M 820 0 C 904.85 0 947.28 0 973.64 26.36 C 1000 52.72 1000 95.15 1000 180 L 1000 820 C 1000 904.85 1000 947.28 973.64 973.64 C 947.28 1000 904.85 1000 820 1000 L 180 1000 C 95.15 1000 52.72 1000 26.36 973.64 C 0 947.28 0 904.85 0 820 L 0 180 C 0 95.15 0 52.72 26.36 26.36 C 52.72 0 95.15 0 180 0 Z' fill='white'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
   }
 }
