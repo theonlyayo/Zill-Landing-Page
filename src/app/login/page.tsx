@@ -19,8 +19,20 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
+  const videoRef = useRef<HTMLVideoElement>(null);
   const feedbackTimerRef = useRef<NodeJS.Timeout | null>(null);
   const emailDebounceRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    }
+  }, []);
 
   const showFeedback = (type: "success" | "error", message: string) => {
     if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
@@ -116,11 +128,14 @@ export default function LoginPage() {
       <div className="hidden lg:flex relative min-h-screen items-center justify-center py-20 px-4 overflow-x-hidden bg-black font-archivo">
       {/* Background Video */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        preload="auto"
+        poster="/admin/bg-poster.jpg"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       >
         <source src="/admin/bg-video.mp4" type="video/mp4" />
       </video>
